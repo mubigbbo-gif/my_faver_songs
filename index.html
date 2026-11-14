@@ -52,20 +52,6 @@
       margin: 0 auto;
     }
 
-    /* Local File Protocol Warning Banner */
-    .protocol-warning {
-      display: none;
-      background: #fffbeb;
-      border: 1px solid #fde68a;
-      border-left: 4px solid #f59e0b;
-      border-radius: var(--radius-md);
-      padding: 12px 18px;
-      margin-bottom: 20px;
-      font-size: 0.86rem;
-      font-weight: 600;
-      color: #92400e;
-    }
-
     /* Sleek Modern Header */
     .masthead {
       background: var(--surface);
@@ -304,7 +290,7 @@
       }
     }
 
-    /* Left: YouTube Video Stage (Fixed Height Collapse Issue) */
+    /* Left: YouTube Video Stage */
     .studio-video-left {
       display: flex;
       flex-direction: column;
@@ -1159,11 +1145,6 @@
 <body>
 
   <div class="app-container">
-    <!-- Local File Warning Banner (Only visible if opened via file://) -->
-    <div class="protocol-warning" id="fileProtocolBanner">
-      ⚠️ 현재 로컬 파일(<code>file://</code>)로 열려 있습니다. 좌측 내장 비디오 모니터로 오류 없이 재생하려면 웹 호스팅(GitHub Pages 등) 주소로 접속하세요. (오류 발생 시 자동으로 팝업 플레이어로 우회 재생됩니다.)
-    </div>
-
     <!-- MODERNIZED HEADER: 내맘대로 고른 음악 -->
     <header class="masthead">
       <div class="masthead-top-bar">
@@ -1235,10 +1216,10 @@
 
     <!-- STUDIO SHOWCASE: LEFT VIDEO MONITOR + RIGHT NOW PLAYING TRACK DETAILS & DAILY RANK TREND -->
     <section class="studio-showcase">
-      <!-- Left: Embedded YouTube Video Player (Hybrid Direct Iframe + YT API) -->
+      <!-- Left: Embedded YouTube Video Player (Pure In-Page Playback, No Auto-Popup) -->
       <div class="studio-video-left">
         <div class="studio-panel-header">
-          <span>▶ LIVE VIDEO MONITOR (좌측 전용 플레이어)</span>
+          <span>▶ LIVE VIDEO MONITOR (좌측 고정 플레이어)</span>
           <span class="status-dot-pill" id="playerStatusBadge">READY</span>
         </div>
         <div class="video-stage-wrap">
@@ -1674,7 +1655,6 @@
     const STORAGE_KEY = 'billboard_90s_favorite_songs_v6_web';
     const WEBHOOK_STORAGE_KEY = 'billboard_90s_sheet_webhook';
     const PERIOD_META_KEY = 'billboard_90s_period_meta_v6';
-    const LAUNCH_MODE_KEY = 'billboard_90s_launch_mode_v6';
 
     // Helper to generate past 6 days' date labels (MM/DD) + today for initial sample trend
     function buildSampleHistory(ranksArray) {
@@ -1798,17 +1778,13 @@
     let lastFetchedVideoId = null;
     let importedCandidateTracks = [];
     let pendingRestoredPayload = null;
-    let launchMode = 'embed';
+    let launchMode = 'embed'; // Always default to in-page embed monitor
 
     // YouTube IFrame Player API State
     let ytPlayer = null;
     let isYtPlayerReady = false;
     let autoNextEnabled = true;
     let progressTimerId = null;
-
-    if (window.location.protocol === 'file:') {
-      document.getElementById('fileProtocolBanner').style.display = 'block';
-    }
 
     function getTodayDateString() {
       const now = new Date();
@@ -1901,15 +1877,14 @@
       return `https://www.youtube.com/embed/${videoId}?enablejsapi=1&autoplay=${autoPlay ? 1 : 0}&rel=0&playsinline=1${originParam}`;
     }
 
-    // Official YouTube IFrame Player API Initialization ( attaches to #ytIframePlayer )
+    // Official YouTube IFrame Player API Initialization (No Auto-Popup Error Handler!)
     function initYouTubePlayerApi() {
       window.onYouTubeIframeAPIReady = function () {
         try {
           ytPlayer = new YT.Player('ytIframePlayer', {
             events: {
               onReady: onYtPlayerReady,
-              onStateChange: onYtPlayerStateChange,
-              onError: onYtPlayerError
+              onStateChange: onYtPlayerStateChange
             }
           });
         } catch (err) {
@@ -1945,15 +1920,6 @@
           badge.textContent = 'FINISHED';
         }
       }
-    }
-
-    function onYtPlayerError(event) {
-      const errCode = event.data;
-      const currentSong = songs.find(s => s.id === currentPlayingId);
-      if (!currentSong) return;
-
-      showToast(`⚠️ 내장 재생 제한 영상(코드 ${errCode}) 감지 → 전용 미니 팝업 창으로 자동 우회 재생합니다!`);
-      openDedicatedPopupWindow(currentSong);
     }
 
     function startProgressLoop() {
@@ -2126,11 +2092,9 @@
         songs = DEFAULT_SONGS.map((s, idx) => normalizeSongRecord(s, idx));
       }
 
-      const savedMode = localStorage.getItem(LAUNCH_MODE_KEY);
-      if (savedMode) {
-        launchMode = savedMode;
-        document.getElementById('launchModeSelect').value = savedMode;
-      }
+      // Always force in-page embed mode on boot so it never unexpectedly opens popups
+      launchMode = 'embed';
+      document.getElementById('launchModeSelect').value = 'embed';
 
       checkAutoPeriodRollover();
     }
@@ -2148,7 +2112,7 @@
 
       const backupPayload = {
         app: 'MY_PICK_MUSIC_CHART',
-        version: 9,
+        version: 10,
         exportedAt: timestamp,
         chartPeriod,
         periodMeta,
@@ -2444,7 +2408,7 @@
       }
     }
 
-    // Hybrid Bulletproof Play Function (Uses YT API if ready, otherwise directly updates iframe.src)
+    // Pure In-Page Play Function (No Automatic Error Popup Fallback)
     function playSong(songId, autoStart = true, countPlay = false, overrideMode = null) {
       if (countPlay) {
         incrementSongPlayCount(songId, 1);
@@ -2467,12 +2431,10 @@
                 ytPlayer.cueVideoById(target.youtubeId);
               }
             } catch (err) {
-              // Fallback to direct iframe src injection
               const iframeEl = document.getElementById('ytIframePlayer');
               if (iframeEl) iframeEl.src = buildEmbedIframeUrl(target.youtubeId, autoStart);
             }
           } else {
-            // Direct iframe src injection guarantees playback even if YT API is still loading!
             const iframeEl = document.getElementById('ytIframePlayer');
             if (iframeEl) {
               iframeEl.src = buildEmbedIframeUrl(target.youtubeId, autoStart);
@@ -3181,7 +3143,6 @@
 
     document.getElementById('launchModeSelect').addEventListener('change', (e) => {
       launchMode = e.target.value;
-      localStorage.setItem(LAUNCH_MODE_KEY, launchMode);
       const modeLabels = {
         embed: '📺 좌측 모니터 내장 재생 모드',
         popup: '❐ 전용 미니 팝업 창 모드',

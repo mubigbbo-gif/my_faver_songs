@@ -304,7 +304,7 @@
       }
     }
 
-    /* Left: YouTube Video Stage */
+    /* Left: YouTube Video Stage (Fixed Height Collapse Issue) */
     .studio-video-left {
       display: flex;
       flex-direction: column;
@@ -343,18 +343,20 @@
     .video-stage-wrap {
       position: relative;
       width: 100%;
-      padding-top: 56.25%; /* 16:9 Widescreen */
+      aspect-ratio: 16 / 9;
+      min-height: 340px;
       background: #000;
       flex: 1;
     }
 
-    #ytPlayerMount,
+    #ytIframePlayer,
     .video-stage-wrap iframe {
       position: absolute;
       inset: 0;
       width: 100%;
       height: 100%;
       border: 0;
+      display: block;
     }
 
     /* Right: Now Playing Track Details, Score Control & Daily Rank Trend */
@@ -1159,7 +1161,7 @@
   <div class="app-container">
     <!-- Local File Warning Banner (Only visible if opened via file://) -->
     <div class="protocol-warning" id="fileProtocolBanner">
-      ⚠️ 현재 로컬 파일(<code>file://</code>)로 열려 있습니다. 좌측 내장 비디오 모니터로 오류 없이 재생하려면 웹 호스팅(GitHub Pages, Netlify 등)에 게시하거나 로컬 서버(<code>http://localhost</code>)로 접속하세요. (오류 발생 시 자동으로 팝업 플레이어로 우회 재생됩니다.)
+      ⚠️ 현재 로컬 파일(<code>file://</code>)로 열려 있습니다. 좌측 내장 비디오 모니터로 오류 없이 재생하려면 웹 호스팅(GitHub Pages 등) 주소로 접속하세요. (오류 발생 시 자동으로 팝업 플레이어로 우회 재생됩니다.)
     </div>
 
     <!-- MODERNIZED HEADER: 내맘대로 고른 음악 -->
@@ -1233,14 +1235,21 @@
 
     <!-- STUDIO SHOWCASE: LEFT VIDEO MONITOR + RIGHT NOW PLAYING TRACK DETAILS & DAILY RANK TREND -->
     <section class="studio-showcase">
-      <!-- Left: Embedded YouTube Video Player -->
+      <!-- Left: Embedded YouTube Video Player (Hybrid Direct Iframe + YT API) -->
       <div class="studio-video-left">
         <div class="studio-panel-header">
           <span>▶ LIVE VIDEO MONITOR (좌측 전용 플레이어)</span>
-          <span class="status-dot-pill" id="playerStatusBadge">AUTO-NEXT ON</span>
+          <span class="status-dot-pill" id="playerStatusBadge">READY</span>
         </div>
         <div class="video-stage-wrap">
-          <div id="ytPlayerMount"></div>
+          <iframe
+            id="ytIframePlayer"
+            src="https://www.youtube.com/embed/L-AxO7EPU8c?enablejsapi=1&rel=0&playsinline=1"
+            title="YouTube video player"
+            referrerpolicy="strict-origin-when-cross-origin"
+            allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+            allowfullscreen>
+          </iframe>
         </div>
       </div>
 
@@ -1259,7 +1268,7 @@
               <div class="np-track-artist" id="npArtistText">서태지와 아이들</div>
             </div>
             <button type="button" class="np-like-btn liked" id="npLikeBtn" title="현재 재생 곡 좋아요 토글">
-              ♥ LIKE
+              ♥ LIKED
             </button>
           </div>
         </div>
@@ -1302,7 +1311,7 @@
         <div class="np-trend-box">
           <div class="np-trend-header">
             <span>📈 현재 곡 일별 순위 추이 (최근 7일)</span>
-            <span class="np-trend-stats" id="npTrendSummaryText">최고 #1 • 최저 #6</span>
+            <span class="np-trend-stats" id="npTrendSummaryText">최고 #1 • 현재 #1</span>
           </div>
           <div class="np-trend-svg-wrap" id="npTrendChartContainer">
             <!-- Dynamic SVG Line Chart rendered here -->
@@ -1661,9 +1670,6 @@
 
   <div class="toast" id="toastMsg">알림 메시지</div>
 
-  <!-- Load Official YouTube IFrame Player API -->
-  <script src="https://www.youtube.com/iframe_api"></script>
-
   <script>
     const STORAGE_KEY = 'billboard_90s_favorite_songs_v6_web';
     const WEBHOOK_STORAGE_KEY = 'billboard_90s_sheet_webhook';
@@ -1887,33 +1893,39 @@
       toast._timer = setTimeout(() => toast.classList.remove('show'), 2800);
     }
 
-    // Official YouTube IFrame Player API Callback
-    window.onYouTubeIframeAPIReady = function () {
-      const initialList = computeEnrichedSongs(chartPeriod).sort((a, b) => a.currentRank - b.currentRank);
-      const firstVid = (initialList[0] && initialList[0].youtubeId) ? initialList[0].youtubeId : 'L-AxO7EPU8c';
+    // Build Safe Embed URL for Direct Iframe Injection
+    function buildEmbedIframeUrl(videoId, autoPlay = false) {
+      const originParam = window.location.protocol.startsWith('http')
+        ? `&origin=${encodeURIComponent(window.location.origin)}`
+        : '';
+      return `https://www.youtube.com/embed/${videoId}?enablejsapi=1&autoplay=${autoPlay ? 1 : 0}&rel=0&playsinline=1${originParam}`;
+    }
 
-      const playerVars = {
-        autoplay: 0,
-        rel: 0,
-        modestbranding: 1,
-        playsinline: 1
-      };
-      if (window.location.protocol.startsWith('http')) {
-        playerVars.origin = window.location.origin;
-      }
-
-      ytPlayer = new YT.Player('ytPlayerMount', {
-        height: '100%',
-        width: '100%',
-        videoId: firstVid,
-        playerVars,
-        events: {
-          onReady: onYtPlayerReady,
-          onStateChange: onYtPlayerStateChange,
-          onError: onYtPlayerError
+    // Official YouTube IFrame Player API Initialization ( attaches to #ytIframePlayer )
+    function initYouTubePlayerApi() {
+      window.onYouTubeIframeAPIReady = function () {
+        try {
+          ytPlayer = new YT.Player('ytIframePlayer', {
+            events: {
+              onReady: onYtPlayerReady,
+              onStateChange: onYtPlayerStateChange,
+              onError: onYtPlayerError
+            }
+          });
+        } catch (err) {
+          isYtPlayerReady = false;
         }
-      });
-    };
+      };
+
+      if (window.YT && window.YT.Player) {
+        window.onYouTubeIframeAPIReady();
+      } else if (!document.getElementById('yt-iframe-api-script')) {
+        const tag = document.createElement('script');
+        tag.id = 'yt-iframe-api-script';
+        tag.src = 'https://www.youtube.com/iframe_api';
+        document.head.appendChild(tag);
+      }
+    }
 
     function onYtPlayerReady() {
       isYtPlayerReady = true;
@@ -1948,13 +1960,15 @@
       clearInterval(progressTimerId);
       progressTimerId = setInterval(() => {
         if (!isYtPlayerReady || !ytPlayer || typeof ytPlayer.getCurrentTime !== 'function') return;
-        const cur = ytPlayer.getCurrentTime() || 0;
-        const dur = ytPlayer.getDuration() || 0;
-        if (dur > 0) {
-          document.getElementById('videoTimeText').textContent = `${formatSecToMMSS(cur)} / ${formatSecToMMSS(dur)}`;
-          const pct = Math.min(100, Math.max(0, (cur / dur) * 100));
-          document.getElementById('seekbarFill').style.width = `${pct}%`;
-        }
+        try {
+          const cur = ytPlayer.getCurrentTime() || 0;
+          const dur = ytPlayer.getDuration() || 0;
+          if (dur > 0) {
+            document.getElementById('videoTimeText').textContent = `${formatSecToMMSS(cur)} / ${formatSecToMMSS(dur)}`;
+            const pct = Math.min(100, Math.max(0, (cur / dur) * 100));
+            document.getElementById('seekbarFill').style.width = `${pct}%`;
+          }
+        } catch (e) {}
       }, 500);
     }
 
@@ -2003,7 +2017,6 @@
       };
     }
 
-    // Sync Today's Live Rank into each song's rankHistory (Last 7 Days)
     function syncTodayRankHistory(enrichedList) {
       const todayLabel = getTodayShortLabel();
       let updated = false;
@@ -2035,7 +2048,6 @@
       }
     }
 
-    // Render SVG Line Chart for Daily Rank Trend in Right Panel
     function renderDailyRankTrendSvg(song) {
       const container = document.getElementById('npTrendChartContainer');
       const summaryEl = document.getElementById('npTrendSummaryText');
@@ -2093,7 +2105,6 @@
               <stop offset="100%" stop-color="#0f172a" stop-opacity="0.0" />
             </linearGradient>
           </defs>
-          <!-- Baseline grids (#1 top, max bottom) -->
           <line x1="${padLeft}" y1="${padTop}" x2="${width - padRight}" y2="${padTop}" stroke="rgba(255,255,255,0.1)" stroke-dasharray="3,3" />
           <line x1="${padLeft}" y1="${padTop + plotH}" x2="${width - padRight}" y2="${padTop + plotH}" stroke="rgba(255,255,255,0.08)" />
           <text x="4" y="${padTop + 3}" fill="#64748b" font-size="8.5" font-weight="700" font-family="Montserrat">#1</text>
@@ -2128,7 +2139,6 @@
       localStorage.setItem(STORAGE_KEY, JSON.stringify(songs));
     }
 
-    // Export Full Chart Data & Metadata as a Downloadable .json File
     function exportChartToJsonFile() {
       const timestamp = getFormattedNow();
       let periodMeta = null;
@@ -2138,7 +2148,7 @@
 
       const backupPayload = {
         app: 'MY_PICK_MUSIC_CHART',
-        version: 8,
+        version: 9,
         exportedAt: timestamp,
         chartPeriod,
         periodMeta,
@@ -2354,7 +2364,6 @@
       }
     }
 
-    // Update Right-hand Now Playing Info Panel (Score Adjuster + Daily Rank Trend Chart)
     function updateNowPlayingInfoPanel(enrichedSong) {
       if (!enrichedSong) return;
       const isDaily = chartPeriod === 'daily';
@@ -2435,6 +2444,7 @@
       }
     }
 
+    // Hybrid Bulletproof Play Function (Uses YT API if ready, otherwise directly updates iframe.src)
     function playSong(songId, autoStart = true, countPlay = false, overrideMode = null) {
       if (countPlay) {
         incrementSongPlayCount(songId, 1);
@@ -2448,21 +2458,36 @@
       const activeMode = overrideMode || launchMode;
 
       if (activeMode === 'embed') {
-        if (isYtPlayerReady && ytPlayer && target.youtubeId) {
-          if (autoStart) {
-            ytPlayer.loadVideoById(target.youtubeId);
+        if (target.youtubeId) {
+          if (isYtPlayerReady && ytPlayer && typeof ytPlayer.loadVideoById === 'function') {
+            try {
+              if (autoStart) {
+                ytPlayer.loadVideoById(target.youtubeId);
+              } else {
+                ytPlayer.cueVideoById(target.youtubeId);
+              }
+            } catch (err) {
+              // Fallback to direct iframe src injection
+              const iframeEl = document.getElementById('ytIframePlayer');
+              if (iframeEl) iframeEl.src = buildEmbedIframeUrl(target.youtubeId, autoStart);
+            }
           } else {
-            ytPlayer.cueVideoById(target.youtubeId);
+            // Direct iframe src injection guarantees playback even if YT API is still loading!
+            const iframeEl = document.getElementById('ytIframePlayer');
+            if (iframeEl) {
+              iframeEl.src = buildEmbedIframeUrl(target.youtubeId, autoStart);
+            }
           }
+          document.getElementById('playerStatusBadge').textContent = autoStart ? 'ON AIR' : 'READY';
         }
       } else if (activeMode === 'popup' && autoStart) {
         if (isYtPlayerReady && ytPlayer && typeof ytPlayer.pauseVideo === 'function') {
-          ytPlayer.pauseVideo();
+          try { ytPlayer.pauseVideo(); } catch (e) {}
         }
         openDedicatedPopupWindow(target);
       } else if (activeMode === 'yt_app_scheme' && autoStart) {
         if (isYtPlayerReady && ytPlayer && typeof ytPlayer.pauseVideo === 'function') {
-          ytPlayer.pauseVideo();
+          try { ytPlayer.pauseVideo(); } catch (e) {}
         }
         triggerYoutubeAppScheme(target);
       }
@@ -3125,12 +3150,15 @@
 
     // Embedded Player Console Controls
     document.getElementById('playPauseBtn').addEventListener('click', () => {
-      if (!isYtPlayerReady || !ytPlayer) return;
-      const state = ytPlayer.getPlayerState();
-      if (state === YT.PlayerState.PLAYING) {
-        ytPlayer.pauseVideo();
-      } else {
-        ytPlayer.playVideo();
+      if (isYtPlayerReady && ytPlayer && typeof ytPlayer.getPlayerState === 'function') {
+        const state = ytPlayer.getPlayerState();
+        if (state === YT.PlayerState.PLAYING) {
+          ytPlayer.pauseVideo();
+        } else {
+          ytPlayer.playVideo();
+        }
+      } else if (currentPlayingId) {
+        playSong(currentPlayingId, true, false);
       }
     });
 
@@ -3479,7 +3507,7 @@
       if (playTrigger) {
         const id = playTrigger.getAttribute('data-play-id');
         playSong(id, true, true);
-        showToast('▶ 재생 시작! (일간/주간 재생횟수 +1 누적)');
+        showToast('▶ 좌측 비디오 모니터에서 재생을 시작합니다! (+1 재생횟수 누적)');
         return;
       }
 
@@ -3695,13 +3723,20 @@
       document.getElementById('liveClock').textContent = `LIVE • ${getFormattedNow()}`;
     }, 1000);
 
+    // Boot Sequence
     loadSongs();
     document.getElementById('liveClock').textContent = `LIVE • ${getFormattedNow()}`;
     renderChart();
     if (songs.length > 0) {
-      const firstId = computeEnrichedSongs(chartPeriod).sort((a, b) => a.currentRank - b.currentRank)[0].id;
-      playSong(firstId, false, false);
+      const firstSong = computeEnrichedSongs(chartPeriod).sort((a, b) => a.currentRank - b.currentRank)[0];
+      currentPlayingId = firstSong.id;
+      const iframeEl = document.getElementById('ytIframePlayer');
+      if (iframeEl && firstSong.youtubeId) {
+        iframeEl.src = buildEmbedIframeUrl(firstSong.youtubeId, false);
+      }
+      updateNowPlayingInfoPanel(firstSong);
     }
+    initYouTubePlayerApi();
   </script>
 </body>
 </html>

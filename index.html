@@ -449,7 +449,7 @@
     /* Now Playing Metrics Grid + Interactive Score Control */
     .np-metrics-grid {
       display: grid;
-      grid-template-columns: 1fr 1.35fr 0.95fr 0.95fr;
+      grid-template-columns: 0.95fr 1.45fr 0.92fr 0.92fr;
       gap: 8px;
       background: rgba(15, 23, 42, 0.65);
       border: 1px solid rgba(255, 255, 255, 0.08);
@@ -493,7 +493,7 @@
       font-weight: 600;
     }
 
-    /* Quick Score Adjuster inside Right Panel */
+    /* Quick Score Adjuster inside Right Panel (Max 500) */
     .np-score-adjuster {
       display: flex;
       align-items: center;
@@ -503,9 +503,9 @@
 
     .np-step-btn {
       font-family: 'Montserrat', sans-serif;
-      font-size: 0.68rem;
+      font-size: 0.66rem;
       font-weight: 800;
-      padding: 3px 6px;
+      padding: 3px 5px;
       border-radius: 5px;
       border: 1px solid rgba(255, 255, 255, 0.2);
       background: rgba(255, 255, 255, 0.08);
@@ -520,7 +520,7 @@
     }
 
     .np-score-input {
-      width: 44px;
+      width: 52px;
       text-align: center;
       font-family: 'Montserrat', sans-serif;
       font-size: 0.9rem;
@@ -694,7 +694,7 @@
 
     .add-song-grid {
       display: grid;
-      grid-template-columns: 1.7fr 1.1fr 0.9fr 0.55fr 0.75fr 0.55fr auto;
+      grid-template-columns: 1.7fr 1.1fr 0.9fr 0.6fr 0.75fr 0.55fr auto;
       gap: 10px;
       align-items: center;
     }
@@ -830,7 +830,7 @@
     table.billboard-table {
       width: 100%;
       border-collapse: collapse;
-      min-width: 1100px;
+      min-width: 1120px;
     }
 
     table.billboard-table thead th {
@@ -1022,11 +1022,11 @@
     .views-input { width: 104px; text-align: right; font-family: 'Montserrat', sans-serif; font-size: 0.86rem; font-weight: 700; border: 1px solid #cbd5e1; border-radius: 6px; padding: 4px 6px; background: #f8fafc; color: var(--accent-indigo); }
     .views-formatted { display: block; font-size: 0.68rem; color: var(--text-secondary); font-weight: 600; margin-top: 3px; }
 
-    .cell-score { width: 185px; }
+    .cell-score { width: 198px; }
     .score-controller { display: inline-flex; align-items: center; gap: 3px; background: #f1f5f9; padding: 4px 6px; border-radius: 8px; }
     .score-step-btn { font-family: 'Montserrat', sans-serif; font-weight: 700; font-size: 0.72rem; padding: 4px 6px; border: 1px solid #cbd5e1; border-radius: 5px; background: #fff; cursor: pointer; transition: background 0.12s; }
     .score-step-btn:hover { background: #e2e8f0; }
-    .score-input { width: 48px; text-align: center; font-family: 'Montserrat', sans-serif; font-size: 0.95rem; font-weight: 800; border: 1px solid #cbd5e1; border-radius: 5px; padding: 3px; background: #fff; color: var(--text-primary); }
+    .score-input { width: 54px; text-align: center; font-family: 'Montserrat', sans-serif; font-size: 0.95rem; font-weight: 800; border: 1px solid #cbd5e1; border-radius: 5px; padding: 3px; background: #fff; color: var(--text-primary); }
 
     .cell-like { width: 52px; }
     .like-btn { border: 1px solid var(--border-light); border-radius: 8px; width: 34px; height: 34px; font-size: 1rem; cursor: pointer; color: #cbd5e1; background: #fff; transition: all 0.15s; }
@@ -1148,7 +1148,7 @@
     <!-- MODERNIZED HEADER: 내맘대로 고른 음악 -->
     <header class="masthead">
       <div class="masthead-top-bar">
-        <span>MY PICK PERSONAL MUSIC CURATION & WEIGHTED CHART</span>
+        <span>MY PICK PERSONAL MUSIC CURATION & WEIGHTED CHART (MAX 500 PTS)</span>
         <span class="live-clock" id="liveClock">집계 시각 로딩 중...</span>
         <span id="lastSnapshotLabel">기준 순위: 초기 샘플 기준</span>
       </div>
@@ -1206,7 +1206,7 @@
 
       <div class="formula-badges">
         <span>⚖️ 순위 산정 공식 (100점 만점):</span>
-        <span class="f-pill f-score">내 평가 점수 60%</span>
+        <span class="f-pill f-score">내 평가 점수 60% (최대 500점)</span>
         <span>+</span>
         <span class="f-pill f-views">유튜브 조회수 10%</span>
         <span>+</span>
@@ -1216,7 +1216,7 @@
 
     <!-- STUDIO SHOWCASE: LEFT VIDEO MONITOR + RIGHT NOW PLAYING TRACK DETAILS & DAILY RANK TREND -->
     <section class="studio-showcase">
-      <!-- Left: Embedded YouTube Video Player (Pure In-Page Playback, No Auto-Popup) -->
+      <!-- Left: Embedded YouTube Video Player -->
       <div class="studio-video-left">
         <div class="studio-panel-header">
           <span>▶ LIVE VIDEO MONITOR (좌측 고정 플레이어)</span>
@@ -1234,7 +1234,7 @@
         </div>
       </div>
 
-      <!-- Right: Currently Playing Song Details, Quick Score Control & Daily Rank Trend -->
+      <!-- Right: Currently Playing Song Details, Quick Score Control (Max 500) & Daily Rank Trend -->
       <div class="studio-info-right">
         <div>
           <div class="np-top-badges">
@@ -1254,7 +1254,7 @@
           </div>
         </div>
 
-        <!-- 60:10:30 Real-time Score & Interactive Score Adjuster -->
+        <!-- 60:10:30 Real-time Score & Interactive Score Adjuster (0 ~ 500) -->
         <div class="np-metrics-grid">
           <div class="metric-card">
             <span class="metric-label">종합 점수 (100점)</span>
@@ -1262,15 +1262,15 @@
             <span class="metric-sub" id="npPrevRankText">이전 순위: 6위</span>
           </div>
 
-          <!-- Interactive Score Control directly inside Right Info Panel -->
+          <!-- Interactive Score Control directly inside Right Info Panel (Max 500) -->
           <div class="metric-card">
-            <span class="metric-label">내 점수 조절 (60%)</span>
+            <span class="metric-label">내 점수 조절 (최대 500점)</span>
             <div class="np-score-adjuster">
-              <button type="button" class="np-step-btn" data-np-score-step="-5" title="점수 -5">-5</button>
+              <button type="button" class="np-step-btn" data-np-score-step="-10" title="점수 -10">-10</button>
               <button type="button" class="np-step-btn" data-np-score-step="-1" title="점수 -1">-1</button>
-              <input type="number" id="npScoreInput" class="np-score-input" value="98" min="0" max="100" title="현재 곡 점수 직접 입력" />
+              <input type="number" id="npScoreInput" class="np-score-input" value="490" min="0" max="500" title="현재 곡 점수 직접 입력 (0~500)" />
               <button type="button" class="np-step-btn" data-np-score-step="1" title="점수 +1">+1</button>
-              <button type="button" class="np-step-btn" data-np-score-step="5" title="점수 +5">+5</button>
+              <button type="button" class="np-step-btn" data-np-score-step="10" title="점수 +10">+10</button>
             </div>
             <span class="metric-sub" id="npChartScoreSub">환산 58.8점 / 60</span>
           </div>
@@ -1378,12 +1378,12 @@
           type="number"
           id="inputScore"
           class="input-field"
-          placeholder="내 점수(0~100)"
-          value="90"
+          placeholder="내 점수(0~500)"
+          value="450"
           min="0"
-          max="100"
+          max="500"
           required
-          title="내 평가 점수 (60% 반영, 기본 0~100점)"
+          title="내 평가 점수 (60% 반영, 0~500점)"
         />
         <input
           type="number"
@@ -1413,7 +1413,7 @@
         <button class="tab-btn active" data-sort="weighted">🏆 종합 점수순 (60:10:30 공식 순위)</button>
         <button class="tab-btn" data-sort="plays_period">🎧 현재모드 재생횟수순</button>
         <button class="tab-btn" data-sort="plays_total">🔥 누적 총 재생횟수순</button>
-        <button class="tab-btn" data-sort="raw_score">⭐ 내 평가 점수순</button>
+        <button class="tab-btn" data-sort="raw_score">⭐ 내 평가 점수순 (500점 만점)</button>
         <button class="tab-btn" data-sort="yt_views">📺 유튜브 조회수순</button>
         <button class="tab-btn" data-sort="jump">🚀 순위 급상승순</button>
       </div>
@@ -1433,7 +1433,7 @@
         <span class="legend-pill" style="background:#f1f5f9; color:#64748b;">━ STAY (유지)</span>
         <span class="legend-pill" style="background:#fef3c7; color:#b45309;">★ NEW (신규 진입)</span>
       </div>
-      <span>💡 우측 상단 정보 패널에서 현재 곡의 점수를 바로 조절하고 일별 순위 추이 그래프를 확인할 수 있습니다!</span>
+      <span>💡 곡별 점수는 최대 500점까지 설정할 수 있으며(60% 비중), 우측 상단 패널과 차트 목록에서 모두 조절 가능합니다!</span>
     </div>
 
     <!-- CHART TABLE -->
@@ -1448,7 +1448,7 @@
             <th>TOTAL INDEX (100점)</th>
             <th id="thPlaysCol">재생횟수 (30%)</th>
             <th>유튜브 조회수 (10%)</th>
-            <th>내 점수 (60%)</th>
+            <th>내 점수 (최대 500점 • 60%)</th>
             <th>LIKE</th>
             <th>POPUP / EDIT / DEL</th>
           </tr>
@@ -1541,8 +1541,8 @@
               추출된 곡 미리보기:
             </span>
             <div style="display: flex; align-items: center; gap: 6px; font-size: 0.82rem; font-weight: 700;">
-              <span>초기 기본 점수:</span>
-              <input type="number" id="importDefaultScore" class="inline-input" value="88" min="0" max="100" style="width: 60px; text-align: center;" />
+              <span>초기 기본 점수 (0~500):</span>
+              <input type="number" id="importDefaultScore" class="inline-input" value="440" min="0" max="500" style="width: 68px; text-align: center;" />
             </div>
           </div>
 
@@ -1655,6 +1655,7 @@
     const STORAGE_KEY = 'billboard_90s_favorite_songs_v6_web';
     const WEBHOOK_STORAGE_KEY = 'billboard_90s_sheet_webhook';
     const PERIOD_META_KEY = 'billboard_90s_period_meta_v6';
+    const MAX_SCORE_LIMIT = 500; // Maximum user score raised from 100 to 500
 
     // Helper to generate past 6 days' date labels (MM/DD) + today for initial sample trend
     function buildSampleHistory(ranksArray) {
@@ -1676,7 +1677,7 @@
         artist: '서태지와 아이들',
         youtubeId: 'L-AxO7EPU8c',
         url: 'https://www.youtube.com/watch?v=L-AxO7EPU8c',
-        score: 98,
+        score: 490,
         ytViews: 8400000,
         dailyPlays: 8,
         weeklyPlays: 34,
@@ -1692,7 +1693,7 @@
         artist: '김건모',
         youtubeId: 'f3O27tN9v7k',
         url: 'https://www.youtube.com/watch?v=f3O27tN9v7k',
-        score: 95,
+        score: 475,
         ytViews: 15200000,
         dailyPlays: 11,
         weeklyPlays: 29,
@@ -1708,7 +1709,7 @@
         artist: '듀스 (DEUX)',
         youtubeId: '9T6_2wW2G9A',
         url: 'https://www.youtube.com/watch?v=9T6_2wW2G9A',
-        score: 93,
+        score: 465,
         ytViews: 6100000,
         dailyPlays: 5,
         weeklyPlays: 22,
@@ -1724,7 +1725,7 @@
         artist: 'H.O.T.',
         youtubeId: 'i545i1jC9tI',
         url: 'https://www.youtube.com/watch?v=i545i1jC9tI',
-        score: 90,
+        score: 450,
         ytViews: 9800000,
         dailyPlays: 6,
         weeklyPlays: 19,
@@ -1740,7 +1741,7 @@
         artist: '솔리드 (Solid)',
         youtubeId: 'xX7nU6B-vG8',
         url: 'https://www.youtube.com/watch?v=xX7nU6B-vG8',
-        score: 88,
+        score: 440,
         ytViews: 4700000,
         dailyPlays: 4,
         weeklyPlays: 15,
@@ -1756,7 +1757,7 @@
         artist: '쿨 (COOL)',
         youtubeId: 'w5c1t3u4P4Q',
         url: 'https://www.youtube.com/watch?v=w5c1t3u4P4Q',
-        score: 85,
+        score: 425,
         ytViews: 11300000,
         dailyPlays: 3,
         weeklyPlays: 12,
@@ -1778,7 +1779,7 @@
     let lastFetchedVideoId = null;
     let importedCandidateTracks = [];
     let pendingRestoredPayload = null;
-    let launchMode = 'embed'; // Always default to in-page embed monitor
+    let launchMode = 'embed';
 
     // YouTube IFrame Player API State
     let ytPlayer = null;
@@ -1877,7 +1878,7 @@
       return `https://www.youtube.com/embed/${videoId}?enablejsapi=1&autoplay=${autoPlay ? 1 : 0}&rel=0&playsinline=1${originParam}`;
     }
 
-    // Official YouTube IFrame Player API Initialization (No Auto-Popup Error Handler!)
+    // Official YouTube IFrame Player API Initialization
     function initYouTubePlayerApi() {
       window.onYouTubeIframeAPIReady = function () {
         try {
@@ -1971,7 +1972,7 @@
         artist: String(s.artist || 'Unknown Artist').trim(),
         youtubeId: vid || '',
         url: s.url || (vid ? `https://www.youtube.com/watch?v=${vid}` : ''),
-        score: Math.min(100, Math.max(0, Number(s.score) || 85)),
+        score: Math.min(MAX_SCORE_LIMIT, Math.max(0, Number(s.score) || 85)),
         ytViews: Math.max(0, Number(s.ytViews) || 100000),
         dailyPlays: Math.max(0, Number(s.dailyPlays) || 0),
         weeklyPlays: Math.max(0, Number(s.weeklyPlays) || 0),
@@ -2092,7 +2093,6 @@
         songs = DEFAULT_SONGS.map((s, idx) => normalizeSongRecord(s, idx));
       }
 
-      // Always force in-page embed mode on boot so it never unexpectedly opens popups
       launchMode = 'embed';
       document.getElementById('launchModeSelect').value = 'embed';
 
@@ -2112,7 +2112,8 @@
 
       const backupPayload = {
         app: 'MY_PICK_MUSIC_CHART',
-        version: 10,
+        version: 11,
+        maxScoreLimit: MAX_SCORE_LIMIT,
         exportedAt: timestamp,
         chartPeriod,
         periodMeta,
@@ -2200,8 +2201,9 @@
       document.getElementById('lastSnapshotLabel').textContent = `기준 순위: ${meta.lastSavedText || '초기 샘플 기준'}`;
     }
 
+    // 500-Point Max Score Weighted Calculation (500 pts -> 60% full weight)
     function computeEnrichedSongs(targetPeriod = chartPeriod) {
-      const maxScoreBase = Math.max(100, ...songs.map(s => Number(s.score) || 0));
+      const maxScoreBase = MAX_SCORE_LIMIT; // 500 points = 60.0 weighted points
       const maxLogViews = Math.max(1, ...songs.map(s => Math.log10((Number(s.ytViews) || 0) + 1)));
       const maxPeriodPlays = Math.max(1, ...songs.map(s =>
         targetPeriod === 'daily' ? (Number(s.dailyPlays) || 0) : (Number(s.weeklyPlays) || 0)
@@ -2211,7 +2213,8 @@
         const periodPlays = targetPeriod === 'daily' ? (Number(s.dailyPlays) || 0) : (Number(s.weeklyPlays) || 0);
         const prevRank = targetPeriod === 'daily' ? s.prevDailyRank : s.prevWeeklyRank;
 
-        const scorePart = ((Number(s.score) || 0) / maxScoreBase) * 60;
+        const clampedScore = Math.min(MAX_SCORE_LIMIT, Math.max(0, Number(s.score) || 0));
+        const scorePart = (clampedScore / maxScoreBase) * 60;
         const logV = Math.log10((Number(s.ytViews) || 0) + 1);
         const viewsPart = maxLogViews > 0 ? (logV / maxLogViews) * 10 : 0;
         const playsPart = periodPlays > 0 ? (periodPlays / maxPeriodPlays) * 30 : 0;
@@ -2220,6 +2223,7 @@
 
         return {
           ...s,
+          score: clampedScore,
           periodPlays,
           prevRank,
           scorePart: Number(scorePart.toFixed(1)),
@@ -2408,7 +2412,7 @@
       }
     }
 
-    // Pure In-Page Play Function (No Automatic Error Popup Fallback)
+    // Pure In-Page Play Function
     function playSong(songId, autoStart = true, countPlay = false, overrideMode = null) {
       if (countPlay) {
         incrementSongPlayCount(songId, 1);
@@ -2973,7 +2977,7 @@
           <td class="cell-total-index">
             <div class="total-index-val">${song.weightedTotal.toFixed(1)} <span style="font-size:0.72rem;">PTS</span></div>
             <div class="index-breakdown">
-              <span title="내 점수 60%">점수 ${song.scorePart}</span>
+              <span title="내 점수 60% (500점 만점)">점수 ${song.scorePart}</span>
               <span title="유튜브 조회수 10%">조회 ${song.viewsPart}</span>
               <span title="재생횟수 30%">재생 ${song.playsPart}</span>
             </div>
@@ -2996,11 +3000,11 @@
           </td>
           <td class="cell-score">
             <div class="score-controller">
-              <button class="score-step-btn" data-step="-5" data-id="${song.id}">-5</button>
+              <button class="score-step-btn" data-step="-10" data-id="${song.id}">-10</button>
               <button class="score-step-btn" data-step="-1" data-id="${song.id}">-1</button>
-              <input type="number" class="score-input" value="${song.score}" data-score-id="${song.id}" min="0" max="100" />
+              <input type="number" class="score-input" value="${song.score}" data-score-id="${song.id}" min="0" max="500" />
               <button class="score-step-btn" data-step="1" data-id="${song.id}">+1</button>
-              <button class="score-step-btn" data-step="5" data-id="${song.id}">+5</button>
+              <button class="score-step-btn" data-step="10" data-id="${song.id}">+10</button>
             </div>
           </td>
           <td class="cell-like">
@@ -3019,17 +3023,17 @@
       });
     }
 
-    // Right Panel Interactive Score & Like Listeners
+    // Right Panel Interactive Score (Max 500) & Like Listeners
     document.querySelectorAll('[data-np-score-step]').forEach(btn => {
       btn.addEventListener('click', () => {
         if (!currentPlayingId) return;
         const delta = parseInt(btn.getAttribute('data-np-score-step'), 10);
         const song = songs.find(s => s.id === currentPlayingId);
         if (song) {
-          song.score = Math.min(100, Math.max(0, (Number(song.score) || 0) + delta));
+          song.score = Math.min(MAX_SCORE_LIMIT, Math.max(0, (Number(song.score) || 0) + delta));
           saveSongs();
           renderChart();
-          showToast(`⭐ '${song.title}' 내 점수가 ${song.score}점으로 변경되었습니다!`);
+          showToast(`⭐ '${song.title}' 내 점수가 ${song.score}점(최대 500점)으로 변경되었습니다!`);
         }
       });
     });
@@ -3039,10 +3043,10 @@
       const val = parseInt(e.target.value, 10);
       const song = songs.find(s => s.id === currentPlayingId);
       if (song && !isNaN(val)) {
-        song.score = Math.min(100, Math.max(0, val));
+        song.score = Math.min(MAX_SCORE_LIMIT, Math.max(0, val));
         saveSongs();
         renderChart();
-        showToast(`⭐ '${song.title}' 내 점수가 ${song.score}점으로 설정되었습니다!`);
+        showToast(`⭐ '${song.title}' 내 점수가 ${song.score}점(최대 500점)으로 설정되었습니다!`);
       }
     });
 
@@ -3183,7 +3187,7 @@
     });
 
     document.getElementById('confirmImportAddBtn').addEventListener('click', () => {
-      const defaultScore = Math.min(100, Math.max(0, parseInt(document.getElementById('importDefaultScore').value, 10) || 88));
+      const defaultScore = Math.min(MAX_SCORE_LIMIT, Math.max(0, parseInt(document.getElementById('importDefaultScore').value, 10) || 440));
       const checkboxes = document.querySelectorAll('#importPreviewBox .import-check');
       const titleInputs = document.querySelectorAll('#importPreviewBox .import-title-in');
       const artistInputs = document.querySelectorAll('#importPreviewBox .import-artist-in');
@@ -3197,7 +3201,7 @@
 
         const customTitle = titleInputs[i] ? titleInputs[i].value.trim() : cand.title;
         const customArtist = artistInputs[i] ? artistInputs[i].value.trim() : cand.artist;
-        const staggeredScore = Math.max(50, defaultScore - Math.floor(addedCount * 0.5));
+        const staggeredScore = Math.max(50, defaultScore - Math.floor(addedCount * 2));
 
         songs.push({
           id: 'song-' + Date.now() + '-' + idx + '-' + Math.random().toString(36).slice(2, 6),
@@ -3281,7 +3285,7 @@
         `[내맘대로 고른 음악 (${modeName}) 재생목록 (${getFormattedNow()})]`,
         `▶ 전곡 연속 재생 링크: ${playlistUrl}`,
         '',
-        ...validTracks.map((t, idx) => `${idx + 1}. [#${t.currentRank} / 총점 ${t.weightedTotal.toFixed(1)}점] ${t.title} - ${t.artist} (재생 ${t.periodPlays}회) : https://youtu.be/${t.youtubeId}`)
+        ...validTracks.map((t, idx) => `${idx + 1}. [#${t.currentRank} / 총점 ${t.weightedTotal.toFixed(1)}점] ${t.title} - ${t.artist} (내점수 ${t.score}점 / 재생 ${t.periodPlays}회) : https://youtu.be/${t.youtubeId}`)
       ];
       await navigator.clipboard.writeText(lines.join('\n'));
       showToast('📝 순위와 유튜브 재생목록 텍스트가 복사되었습니다!');
@@ -3318,7 +3322,7 @@
       fetchYoutubeMetadata(val, true);
     });
 
-    // Add New Song Form
+    // Add New Song Form (Max 500)
     document.getElementById('addSongForm').addEventListener('submit', async (e) => {
       e.preventDefault();
       const urlInput = document.getElementById('inputUrl').value.trim();
@@ -3332,7 +3336,7 @@
 
       let title = document.getElementById('inputTitle').value.trim();
       let artist = document.getElementById('inputArtist').value.trim();
-      const score = Math.min(100, Math.max(0, parseInt(document.getElementById('inputScore').value, 10) || 90));
+      const score = Math.min(MAX_SCORE_LIMIT, Math.max(0, parseInt(document.getElementById('inputScore').value, 10) || 450));
       let ytViews = parseInt(document.getElementById('inputYtViews').value, 10) || 1000000;
       const prevRankVal = parseInt(document.getElementById('inputPrevRank').value, 10);
 
@@ -3386,7 +3390,7 @@
 
       e.target.reset();
       lastFetchedVideoId = null;
-      document.getElementById('inputScore').value = 90;
+      document.getElementById('inputScore').value = 450;
       document.getElementById('inputYtViews').value = 1000000;
       document.getElementById('autofillStatusBadge').textContent = '✨ 유튜브 영상 링크나 재생목록(list=PL...) 주소를 붙여넣으세요';
       document.getElementById('autofillStatusBadge').className = 'autofill-status';
@@ -3499,7 +3503,7 @@
         const delta = parseInt(stepBtn.getAttribute('data-step'), 10);
         const song = songs.find(s => s.id === id);
         if (song) {
-          song.score = Math.min(100, Math.max(0, (Number(song.score) || 0) + delta));
+          song.score = Math.min(MAX_SCORE_LIMIT, Math.max(0, (Number(song.score) || 0) + delta));
           saveSongs();
           renderChart();
         }
@@ -3534,7 +3538,7 @@
         const val = parseInt(e.target.value, 10);
         const song = songs.find(s => s.id === id);
         if (song && !isNaN(val)) {
-          song.score = Math.min(100, Math.max(0, val));
+          song.score = Math.min(MAX_SCORE_LIMIT, Math.max(0, val));
           saveSongs();
           renderChart();
         }
@@ -3574,7 +3578,7 @@
       saveSongs();
       renderChart();
       if (songs[0]) playSong(songs[0].id, false, false);
-      showToast('기본 샘플 차트(7일 순위 추이 포함)로 복원되었습니다.');
+      showToast('기본 샘플 차트(500점 만점 기준)로 복원되었습니다.');
     });
 
     // Google Sheets Snapshot Modal Logic
@@ -3586,7 +3590,7 @@
 
       const header = [
         '집계시각', '차트구분', '현재순위', '이전순위', '순위변동',
-        '곡명', '아티스트', '종합점수(100점)', '내점수(60%)', '유튜브조회수(10%)',
+        '곡명', '아티스트', '종합점수(100점)', '내점수(500점만점/60%)', '유튜브조회수(10%)',
         '현재모드재생수(30%)', '일간재생수', '주간재생수', '누적총재생수', '유튜브조회수(원본)',
         '좋아요', '유튜브링크', '전체재생목록링크'
       ].join('\t');
@@ -3645,7 +3649,7 @@
 
     document.getElementById('downloadCsvBtn').addEventListener('click', () => {
       const { timestamp, modeLabel, sorted, playlistUrl } = buildSnapshotTSV();
-      const csvHeader = '집계시각,차트구분,현재순위,이전순위,순위변동,곡명,아티스트,종합점수,내점수(원점수),유튜브조회수,일간재생수,주간재생수,누적총재생수,좋아요,유튜브링크,전체재생목록링크';
+      const csvHeader = '집계시각,차트구분,현재순위,이전순위,순위변동,곡명,아티스트,종합점수,내점수(500점만점),유튜브조회수,일간재생수,주간재생수,누적총재생수,좋아요,유튜브링크,전체재생목록링크';
       const csvRows = sorted.map((s, idx) => {
         const move = getMovementInfo(s.currentRank, s.prevRank);
         return `"${timestamp}","${modeLabel}",${s.currentRank},"${s.prevRank ? s.prevRank : 'NEW'}","${move.plainText}","${s.title.replace(/"/g, '""')}","${s.artist.replace(/"/g, '""')}",${s.weightedTotal.toFixed(2)},${s.score},${s.ytViews},${s.dailyPlays},${s.weeklyPlays},${s.totalPlays},"${s.liked ? 'LIKE' : ''}","${getPlayableUrl(s)}","${idx === 0 ? playlistUrl : ''}"`;

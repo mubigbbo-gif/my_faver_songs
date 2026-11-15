@@ -48,7 +48,7 @@
     }
 
     .app-container {
-      max-width: 1360px;
+      max-width: 1380px;
       margin: 0 auto;
     }
 
@@ -81,9 +81,19 @@
       font-family: 'Montserrat', sans-serif;
       font-weight: 700;
       background: #fff1f2;
-      padding: 4px 10px;
+      padding: 4px 12px;
       border-radius: 999px;
       font-size: 0.78rem;
+    }
+
+    .midnight-badge {
+      background: #eef2ff;
+      color: var(--accent-indigo);
+      border: 1px solid #c7d2fe;
+      padding: 3px 10px;
+      border-radius: 999px;
+      font-weight: 700;
+      font-size: 0.76rem;
     }
 
     .masthead-main {
@@ -124,7 +134,7 @@
 
     .chart-subtitle {
       font-family: 'Montserrat', sans-serif;
-      font-size: 0.78rem;
+      font-size: 0.76rem;
       font-weight: 800;
       background: var(--dark-panel);
       color: #fff;
@@ -136,7 +146,7 @@
 
     .header-actions {
       display: flex;
-      gap: 8px;
+      gap: 7px;
       flex-wrap: wrap;
     }
 
@@ -144,8 +154,8 @@
     .btn {
       font-family: 'Pretendard', sans-serif;
       font-weight: 600;
-      font-size: 0.82rem;
-      padding: 9px 14px;
+      font-size: 0.81rem;
+      padding: 9px 13px;
       border-radius: var(--radius-md);
       border: 1px solid var(--border-light);
       background: var(--surface);
@@ -154,7 +164,7 @@
       transition: all 0.18s ease;
       display: inline-flex;
       align-items: center;
-      gap: 6px;
+      gap: 5px;
       text-decoration: none;
     }
 
@@ -203,7 +213,7 @@
     }
     .btn-dark:hover { background: #1e293b; }
 
-    /* Period Switcher & Formula Banner */
+    /* Settlement Policy & Formula Banner */
     .period-formula-bar {
       display: flex;
       justify-content: space-between;
@@ -212,38 +222,29 @@
       gap: 12px;
       background: var(--surface);
       border-radius: var(--radius-lg);
-      padding: 12px 20px;
+      padding: 13px 20px;
       margin-bottom: 22px;
       box-shadow: var(--shadow-soft);
       border: 1px solid var(--border-light);
     }
 
-    .period-tabs {
+    .settlement-info-box {
       display: flex;
-      gap: 6px;
       align-items: center;
-      background: #f1f5f9;
-      padding: 4px;
-      border-radius: var(--radius-md);
-    }
-
-    .period-btn {
-      font-family: 'Pretendard', sans-serif;
-      font-size: 0.88rem;
+      gap: 10px;
+      flex-wrap: wrap;
+      font-size: 0.84rem;
       font-weight: 700;
-      padding: 7px 16px;
-      border: none;
-      border-radius: 8px;
-      background: transparent;
-      color: var(--text-secondary);
-      cursor: pointer;
-      transition: all 0.18s;
+      color: var(--text-primary);
     }
 
-    .period-btn.active {
-      background: var(--surface);
-      color: var(--accent-primary);
-      box-shadow: 0 2px 8px rgba(15, 23, 42, 0.08);
+    .settlement-tag {
+      background: var(--dark-panel);
+      color: #fde68a;
+      padding: 4px 10px;
+      border-radius: 8px;
+      font-size: 0.76rem;
+      font-weight: 800;
     }
 
     .formula-badges {
@@ -260,7 +261,7 @@
       padding: 4px 10px;
       border-radius: 999px;
       font-weight: 700;
-      font-size: 0.76rem;
+      font-size: 0.75rem;
     }
 
     .f-score { background: #fef3c7; color: #b45309; }
@@ -449,7 +450,7 @@
     /* Now Playing Metrics Grid + Interactive Score Control */
     .np-metrics-grid {
       display: grid;
-      grid-template-columns: 0.95fr 1.45fr 0.92fr 0.92fr;
+      grid-template-columns: 1fr 1.4fr 1.15fr 0.85fr;
       gap: 8px;
       background: rgba(15, 23, 42, 0.65);
       border: 1px solid rgba(255, 255, 255, 0.08);
@@ -478,7 +479,7 @@
 
     .metric-val {
       font-family: 'Montserrat', sans-serif;
-      font-size: 1.08rem;
+      font-size: 1.05rem;
       font-weight: 800;
       color: #fff;
     }
@@ -488,8 +489,8 @@
     }
 
     .metric-sub {
-      font-size: 0.66rem;
-      color: #64748b;
+      font-size: 0.65rem;
+      color: #94a3b8;
       font-weight: 600;
     }
 
@@ -830,14 +831,14 @@
     table.billboard-table {
       width: 100%;
       border-collapse: collapse;
-      min-width: 1120px;
+      min-width: 1140px;
     }
 
     table.billboard-table thead th {
       background: #f8fafc;
       color: #475569;
       font-family: 'Montserrat', 'Pretendard', sans-serif;
-      font-size: 0.75rem;
+      font-size: 0.74rem;
       font-weight: 800;
       letter-spacing: 0.5px;
       text-transform: uppercase;
@@ -1007,16 +1008,19 @@
       background: #fff;
     }
 
-    .cell-total-index { width: 155px; }
+    .cell-total-index { width: 165px; }
     .total-index-val { font-family: 'Montserrat', sans-serif; font-size: 1.25rem; font-weight: 800; color: var(--accent-primary); line-height: 1.1; }
-    .index-breakdown { font-size: 0.68rem; font-weight: 600; color: var(--text-secondary); margin-top: 4px; display: flex; justify-content: center; gap: 4px; flex-wrap: wrap; }
+    .index-breakdown { font-size: 0.66rem; font-weight: 600; color: var(--text-secondary); margin-top: 3px; display: flex; justify-content: center; gap: 4px; flex-wrap: wrap; }
     .index-breakdown span { background: #f1f5f9; padding: 2px 5px; border-radius: 4px; }
+    .pending-next-preview { font-size: 0.66rem; font-weight: 700; color: var(--accent-indigo); margin-top: 3px; }
 
-    .cell-plays { width: 145px; }
+    /* Dual Play Count Cell (Weekly 15% + Cumulative 15% = 30%) */
+    .cell-plays { width: 165px; }
     .play-counter-box { display: flex; flex-direction: column; align-items: center; gap: 4px; }
-    .play-main-line { display: inline-flex; align-items: center; gap: 4px; background: #ecfdf5; border: 1px solid #a7f3d0; border-radius: 8px; padding: 2px 6px; }
-    .play-count-num { font-family: 'Montserrat', sans-serif; font-size: 0.95rem; font-weight: 800; color: #047857; min-width: 32px; }
-    .play-sub-line { font-size: 0.68rem; color: var(--text-secondary); font-weight: 500; }
+    .play-dual-badges { display: flex; gap: 4px; align-items: center; flex-wrap: wrap; justify-content: center; }
+    .play-badge-wk { background: #ecfdf5; border: 1px solid #a7f3d0; color: #047857; padding: 2px 7px; border-radius: 6px; font-size: 0.74rem; font-weight: 800; }
+    .play-badge-tot { background: #eef2ff; border: 1px solid #c7d2fe; color: #3730a3; padding: 2px 7px; border-radius: 6px; font-size: 0.74rem; font-weight: 800; }
+    .play-step-row { display: inline-flex; align-items: center; gap: 4px; margin-top: 1px; }
 
     .cell-views { width: 130px; }
     .views-input { width: 104px; text-align: right; font-family: 'Montserrat', sans-serif; font-size: 0.86rem; font-weight: 700; border: 1px solid #cbd5e1; border-radius: 6px; padding: 4px 6px; background: #f8fafc; color: var(--accent-indigo); }
@@ -1148,9 +1152,9 @@
     <!-- MODERNIZED HEADER: 내맘대로 고른 음악 -->
     <header class="masthead">
       <div class="masthead-top-bar">
-        <span>MY PICK PERSONAL MUSIC CURATION & WEIGHTED CHART (MAX 500 PTS)</span>
-        <span class="live-clock" id="liveClock">집계 시각 로딩 중...</span>
-        <span id="lastSnapshotLabel">기준 순위: 초기 샘플 기준</span>
+        <span>MY PICK PERSONAL MUSIC CURATION • MIDNIGHT (00:00) DAILY SETTLEMENT SYSTEM</span>
+        <span class="live-clock" id="liveClock">현재 시각 로딩 중...</span>
+        <span class="midnight-badge" id="lastSettlementLabel">마지막 0시 정산: 확인 중...</span>
       </div>
 
       <div class="masthead-main">
@@ -1159,29 +1163,29 @@
           <div>
             <h1 class="brand-title">내맘대로 고른 음악</h1>
           </div>
-          <div class="chart-subtitle" id="chartModeTitleBadge">WEEKLY TOP CHART</div>
+          <div class="chart-subtitle">MIDNIGHT OFFICIAL CHART</div>
         </div>
 
         <div class="header-actions">
-          <button class="btn btn-indigo" id="exportJsonBtn" title="현재 차트 곡 목록, 점수, 일별 순위 추이, 재생횟수를 .json 파일로 다운로드합니다">
+          <button class="btn btn-dark" id="forceMidnightSettleBtn" title="자정(0시)이 되기 전에 현재까지 누적된 점수와 재생횟수로 즉시 총합 정산 및 순위 갱신을 수행합니다">
+            ⚡ 지금 즉시 0시 정산 실행
+          </button>
+          <button class="btn" id="resetWeeklyPlaysBtn" title="주간 단위 재생횟수를 수동으로 0으로 초기화합니다 (진입 후 누적횟수는 유지됨)">
+            🔄 주간 재생수 초기화
+          </button>
+          <button class="btn btn-indigo" id="exportJsonBtn" title="현재 차트 데이터를 .json 파일로 백업합니다">
             💾 JSON 백업
           </button>
-          <button class="btn" id="importJsonBtn" title="백업해 둔 .json 파일을 불러와 차트 데이터를 복원합니다">
+          <button class="btn" id="importJsonBtn" title="백업해 둔 .json 파일을 불러옵니다">
             📂 JSON 복원
           </button>
           <input type="file" id="jsonFileInput" accept=".json,application/json" style="display: none;" />
 
-          <button class="btn btn-green" id="openImportModalBtn" title="기존 유튜브 재생목록(PL...) 또는 여러 개의 유튜브 링크를 한꺼번에 불러와 차트에 추가합니다">
+          <button class="btn btn-green" id="openImportModalBtn" title="기존 유튜브 재생목록(PL...) 또는 다중 링크를 불러옵니다">
             📥 재생목록 가져오기
           </button>
-          <button class="btn btn-red" id="openPlaylistModalBtn" title="현재 차트 순위 그대로 유튜브 연속 재생목록(Playlist)을 생성합니다">
+          <button class="btn btn-red" id="openPlaylistModalBtn" title="현재 차트 순위 그대로 유튜브 연속 재생목록을 생성합니다">
             🎵 유튜브 재생목록 생성
-          </button>
-          <button class="btn btn-dark" id="savePrevRankBtn" title="현재 모드의 순위를 이전 순위로 저장하고 오늘 순위 추이를 기록합니다">
-            📌 '이전 순위' 저장
-          </button>
-          <button class="btn" id="resetPeriodPlaysBtn" title="현재 순위를 이전 순위로 넘기고 현재 모드(일간/주간)의 재생횟수를 0으로 초기화합니다">
-            🔄 기간 마감
           </button>
           <button class="btn btn-gold" id="openSheetModalBtn">
             📊 구글 시트 기록
@@ -1193,24 +1197,20 @@
       </div>
     </header>
 
-    <!-- PERIOD SWITCHER (DAILY / WEEKLY) & FORMULA WEIGHTS BANNER -->
+    <!-- MIDNIGHT SETTLEMENT POLICY & FORMULA WEIGHTS BANNER -->
     <section class="period-formula-bar">
-      <div class="period-tabs">
-        <button class="period-btn active" id="modeWeeklyBtn" data-period="weekly">
-          📆 주간 차트 (WEEKLY)
-        </button>
-        <button class="period-btn" id="modeDailyBtn" data-period="daily">
-          📅 일간 차트 (DAILY)
-        </button>
+      <div class="settlement-info-box">
+        <span class="settlement-tag">🕛 매일 00:00 정산제</span>
+        <span>평소 재생수·점수 변경은 실시간 누적되며, <strong>매일 밤 0시(자정)</strong>에 종합 점수와 순위가 일괄 갱신됩니다.</span>
       </div>
 
       <div class="formula-badges">
-        <span>⚖️ 순위 산정 공식 (100점 만점):</span>
-        <span class="f-pill f-score">내 평가 점수 60% (최대 500점)</span>
+        <span>⚖️ 0시 정산 공식 (100점 만점):</span>
+        <span class="f-pill f-score">내 점수 60% (500점 만점)</span>
         <span>+</span>
         <span class="f-pill f-views">유튜브 조회수 10%</span>
         <span>+</span>
-        <span class="f-pill f-plays" id="formulaPlayLabel">주간 재생횟수 30%</span>
+        <span class="f-pill f-plays">재생횟수 30% (주간 15% + 진입누적 15%)</span>
       </div>
     </section>
 
@@ -1234,11 +1234,11 @@
         </div>
       </div>
 
-      <!-- Right: Currently Playing Song Details, Quick Score Control (Max 500) & Daily Rank Trend -->
+      <!-- Right: Currently Playing Song Details, Quick Score Control & Daily Rank Trend -->
       <div class="studio-info-right">
         <div>
           <div class="np-top-badges">
-            <span class="np-rank-pill" id="npRankBadge">WEEKLY #1</span>
+            <span class="np-rank-pill" id="npRankBadge">OFFICIAL #1</span>
             <span class="np-movement-pill" id="npMoveBadge">🚀 +5 폭등 (이전 6위)</span>
           </div>
 
@@ -1254,17 +1254,17 @@
           </div>
         </div>
 
-        <!-- 60:10:30 Real-time Score & Interactive Score Adjuster (0 ~ 500) -->
+        <!-- 60:10:30 Official Settled Score & Live Pending Inputs -->
         <div class="np-metrics-grid">
           <div class="metric-card">
-            <span class="metric-label">종합 점수 (100점)</span>
-            <span class="metric-val highlight" id="npTotalScore">98.8 PTS</span>
-            <span class="metric-sub" id="npPrevRankText">이전 순위: 6위</span>
+            <span class="metric-label">0시 정산 총점 (공식)</span>
+            <span class="metric-val highlight" id="npTotalScore">98.4 PTS</span>
+            <span class="metric-sub" id="npNextExpectedText">내일 0시 예상: 98.4점</span>
           </div>
 
           <!-- Interactive Score Control directly inside Right Info Panel (Max 500) -->
           <div class="metric-card">
-            <span class="metric-label">내 점수 조절 (최대 500점)</span>
+            <span class="metric-label">내 점수 설정 (60%)</span>
             <div class="np-score-adjuster">
               <button type="button" class="np-step-btn" data-np-score-step="-10" title="점수 -10">-10</button>
               <button type="button" class="np-step-btn" data-np-score-step="-1" title="점수 -1">-1</button>
@@ -1272,26 +1272,26 @@
               <button type="button" class="np-step-btn" data-np-score-step="1" title="점수 +1">+1</button>
               <button type="button" class="np-step-btn" data-np-score-step="10" title="점수 +10">+10</button>
             </div>
-            <span class="metric-sub" id="npChartScoreSub">환산 58.8점 / 60</span>
+            <span class="metric-sub" id="npChartScoreSub">0시 정산 반영: 58.8점</span>
           </div>
 
           <div class="metric-card">
-            <span class="metric-label" id="npPlaysLabel">주간 재생 (30%)</span>
-            <span class="metric-val" id="npPlaysVal">34회</span>
-            <span class="metric-sub" id="npPlaysSub">환산 30.0점 • 총 120회</span>
+            <span class="metric-label">재생횟수 합산 (30%)</span>
+            <span class="metric-val" id="npPlaysVal">주간 34 • 누적 120</span>
+            <span class="metric-sub" id="npPlaysSub">0시 정산 반영: 30.0점</span>
           </div>
 
           <div class="metric-card">
             <span class="metric-label">유튜브 조회 (10%)</span>
             <span class="metric-val" id="npViewsVal">840만회</span>
-            <span class="metric-sub" id="npViewsSub">환산 9.6점 / 10</span>
+            <span class="metric-sub" id="npViewsSub">0시 정산 반영: 9.6점</span>
           </div>
         </div>
 
         <!-- Daily Rank Trend Visualization (Last 7 Days SVG Line Chart) -->
         <div class="np-trend-box">
           <div class="np-trend-header">
-            <span>📈 현재 곡 일별 순위 추이 (최근 7일)</span>
+            <span>📈 현재 곡 일별 순위 추이 (매일 0시 정산 기준 • 최근 7일)</span>
             <span class="np-trend-stats" id="npTrendSummaryText">최고 #1 • 현재 #1</span>
           </div>
           <div class="np-trend-svg-wrap" id="npTrendChartContainer">
@@ -1335,10 +1335,10 @@
       </div>
     </section>
 
-    <!-- ADD NEW SONG BAR -->
+    <!-- ADD NEW SONG BAR (DEFAULT SCORE = 90) -->
     <section class="add-song-bar">
       <div class="add-song-title">
-        <span>＋ 새로운 곡 추가 (유튜브 링크만 붙여넣으면 제목 · 아티스트 · 조회수 자동 완성)</span>
+        <span>＋ 새로운 곡 추가 (신규 곡 기본 점수 90점 시작 • 유튜브 링크 입력 시 자동 완성)</span>
         <span id="autofillStatusBadge" class="autofill-status">
           ✨ 유튜브 영상 링크나 재생목록(list=PL...) 주소를 붙여넣으세요
         </span>
@@ -1378,12 +1378,12 @@
           type="number"
           id="inputScore"
           class="input-field"
-          placeholder="내 점수(0~500)"
-          value="450"
+          placeholder="기본점수(90)"
+          value="90"
           min="0"
           max="500"
           required
-          title="내 평가 점수 (60% 반영, 0~500점)"
+          title="신규 곡 기본 점수는 90점으로 시작합니다 (최대 500점)"
         />
         <input
           type="number"
@@ -1402,7 +1402,7 @@
           min="1"
           max="999"
         />
-        <button type="submit" class="btn btn-red" id="submitSongBtn">차트 등록</button>
+        <button type="submit" class="btn btn-red" id="submitSongBtn">차트 등록 (90점)</button>
       </form>
     </section>
 
@@ -1410,10 +1410,10 @@
     <div class="chart-controls">
       <div class="control-group">
         <span class="control-label">SORT BY</span>
-        <button class="tab-btn active" data-sort="weighted">🏆 종합 점수순 (60:10:30 공식 순위)</button>
-        <button class="tab-btn" data-sort="plays_period">🎧 현재모드 재생횟수순</button>
-        <button class="tab-btn" data-sort="plays_total">🔥 누적 총 재생횟수순</button>
-        <button class="tab-btn" data-sort="raw_score">⭐ 내 평가 점수순 (500점 만점)</button>
+        <button class="tab-btn active" data-sort="settled_rank">🏆 0시 공식 순위순 (정산 총점 기준)</button>
+        <button class="tab-btn" data-sort="plays_weekly">🎧 주간 재생횟수순 (주간 초기화)</button>
+        <button class="tab-btn" data-sort="plays_total">🔥 진입 후 누적 재생횟수순</button>
+        <button class="tab-btn" data-sort="raw_score">⭐ 현재 내 점수순 (최대 500점)</button>
         <button class="tab-btn" data-sort="yt_views">📺 유튜브 조회수순</button>
         <button class="tab-btn" data-sort="jump">🚀 순위 급상승순</button>
       </div>
@@ -1426,14 +1426,14 @@
     <!-- RANK MOVEMENT TIER LEGEND -->
     <div class="movement-legend">
       <div class="legend-items">
-        <span>📊 순위 변동 배지:</span>
+        <span>📊 0시 정산 순위 변동 배지:</span>
         <span class="legend-pill" style="background:#f3e8ff; color:#7e22ce;">🚀 ROCKET (+5 이상 폭등)</span>
         <span class="legend-pill" style="background:#ffe4e6; color:#e11d48;">🔥 HOT SHOT (+3~4 급상승)</span>
         <span class="legend-pill" style="background:#d1fae5; color:#047857;">▲ UP (+1~2 상승)</span>
         <span class="legend-pill" style="background:#f1f5f9; color:#64748b;">━ STAY (유지)</span>
         <span class="legend-pill" style="background:#fef3c7; color:#b45309;">★ NEW (신규 진입)</span>
       </div>
-      <span>💡 곡별 점수는 최대 500점까지 설정할 수 있으며(60% 비중), 우측 상단 패널과 차트 목록에서 모두 조절 가능합니다!</span>
+      <span>💡 오늘 낮에 올린 점수와 재생횟수는 <strong>내일 0시(자정)</strong>에 총합 계산되어 공식 순위에 반영됩니다! (상단 [⚡ 지금 즉시 0시 정산 실행]으로 수동 갱신도 가능)</span>
     </div>
 
     <!-- CHART TABLE -->
@@ -1441,14 +1441,14 @@
       <table class="billboard-table">
         <thead>
           <tr>
-            <th id="thCurrentRank">WEEKLY RANK</th>
-            <th id="thPrevRank">LAST WEEK</th>
+            <th>0시 공식순위</th>
+            <th>이전 순위</th>
             <th>MOVEMENT</th>
             <th class="col-song">TRACK / ARTIST (클릭 시 좌측 모니터 재생 • [✎] 곡 정보 수정)</th>
-            <th>TOTAL INDEX (100점)</th>
-            <th id="thPlaysCol">재생횟수 (30%)</th>
+            <th>0시 정산 총점 (100점)</th>
+            <th>재생횟수 (주간15%+누적15%=30%)</th>
             <th>유튜브 조회수 (10%)</th>
-            <th>내 점수 (최대 500점 • 60%)</th>
+            <th>내 점수 설정 (최대 500점 • 60%)</th>
             <th>LIKE</th>
             <th>POPUP / EDIT / DEL</th>
           </tr>
@@ -1541,8 +1541,8 @@
               추출된 곡 미리보기:
             </span>
             <div style="display: flex; align-items: center; gap: 6px; font-size: 0.82rem; font-weight: 700;">
-              <span>초기 기본 점수 (0~500):</span>
-              <input type="number" id="importDefaultScore" class="inline-input" value="440" min="0" max="500" style="width: 68px; text-align: center;" />
+              <span>신규 곡 기본 시작 점수:</span>
+              <input type="number" id="importDefaultScore" class="inline-input" value="90" min="0" max="500" style="width: 68px; text-align: center;" />
             </div>
           </div>
 
@@ -1556,7 +1556,7 @@
         <div style="display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap; gap: 10px;">
           <span style="font-size: 0.8rem; color: var(--text-secondary);">※ 이미 차트에 존재하는 중복 영상은 자동으로 체크 해제됩니다.</span>
           <button class="btn btn-red" id="confirmImportAddBtn" disabled>
-            ＋ 선택한 곡들을 내 차트에 일괄 추가하기
+            ＋ 선택한 곡들을 내 차트에 일괄 추가하기 (기본 90점)
           </button>
         </div>
       </div>
@@ -1575,7 +1575,7 @@
           <p style="font-size: 0.92rem; font-weight: 700;">
             총 <span id="playlistCountText" style="color: var(--accent-primary);">0</span>곡이 현재 차트 순서대로 재생목록에 포함되었습니다.
           </p>
-          <span style="font-size: 0.8rem; color: var(--text-secondary);">※ 실행 시 포함 곡들의 재생횟수가 +1씩 누적됩니다.</span>
+          <span style="font-size: 0.8rem; color: var(--text-secondary);">※ 실행 시 포함 곡들의 주간 및 누적 재생횟수가 +1씩 증가합니다.</span>
         </div>
 
         <div>
@@ -1619,7 +1619,7 @@
       </div>
       <div class="modal-body">
         <p style="font-size: 0.92rem; font-weight: 600;">
-          기록 기준 시각 및 차트 모드: <span id="snapshotTimeText" style="color: var(--accent-primary); font-weight: 700;"></span>
+          기록 기준 시각: <span id="snapshotTimeText" style="color: var(--accent-primary); font-weight: 700;"></span>
         </p>
 
         <textarea id="snapshotTextarea" class="snapshot-preview" readonly></textarea>
@@ -1652,12 +1652,13 @@
   <div class="toast" id="toastMsg">알림 메시지</div>
 
   <script>
-    const STORAGE_KEY = 'billboard_90s_favorite_songs_v6_web';
+    const STORAGE_KEY = 'mypick_music_chart_v12_midnight';
     const WEBHOOK_STORAGE_KEY = 'billboard_90s_sheet_webhook';
-    const PERIOD_META_KEY = 'billboard_90s_period_meta_v6';
-    const MAX_SCORE_LIMIT = 500; // Maximum user score raised from 100 to 500
+    const SETTLEMENT_META_KEY = 'mypick_music_settlement_meta_v12';
+    const MAX_SCORE_LIMIT = 500;
+    const DEFAULT_NEW_SONG_SCORE = 90;
 
-    // Helper to generate past 6 days' date labels (MM/DD) + today for initial sample trend
+    // Generate past 7 days' date labels (MM/DD) for initial sample trend
     function buildSampleHistory(ranksArray) {
       const result = [];
       const now = new Date();
@@ -1677,13 +1678,11 @@
         artist: '서태지와 아이들',
         youtubeId: 'L-AxO7EPU8c',
         url: 'https://www.youtube.com/watch?v=L-AxO7EPU8c',
-        score: 490,
+        score: 480,
         ytViews: 8400000,
-        dailyPlays: 8,
         weeklyPlays: 34,
         totalPlays: 120,
-        prevDailyRank: 3,
-        prevWeeklyRank: 6,
+        prevRank: 6,
         rankHistory: buildSampleHistory([6, 5, 4, 3, 2, 2, 1]),
         liked: true
       },
@@ -1693,13 +1692,11 @@
         artist: '김건모',
         youtubeId: 'f3O27tN9v7k',
         url: 'https://www.youtube.com/watch?v=f3O27tN9v7k',
-        score: 475,
+        score: 450,
         ytViews: 15200000,
-        dailyPlays: 11,
         weeklyPlays: 29,
         totalPlays: 105,
-        prevDailyRank: 5,
-        prevWeeklyRank: 5,
+        prevRank: 5,
         rankHistory: buildSampleHistory([5, 5, 4, 4, 3, 3, 2]),
         liked: true
       },
@@ -1709,13 +1706,11 @@
         artist: '듀스 (DEUX)',
         youtubeId: '9T6_2wW2G9A',
         url: 'https://www.youtube.com/watch?v=9T6_2wW2G9A',
-        score: 465,
+        score: 420,
         ytViews: 6100000,
-        dailyPlays: 5,
         weeklyPlays: 22,
         totalPlays: 88,
-        prevDailyRank: 2,
-        prevWeeklyRank: 4,
+        prevRank: 4,
         rankHistory: buildSampleHistory([2, 2, 3, 2, 4, 4, 3]),
         liked: true
       },
@@ -1725,13 +1720,11 @@
         artist: 'H.O.T.',
         youtubeId: 'i545i1jC9tI',
         url: 'https://www.youtube.com/watch?v=i545i1jC9tI',
-        score: 450,
+        score: 390,
         ytViews: 9800000,
-        dailyPlays: 6,
         weeklyPlays: 19,
         totalPlays: 64,
-        prevDailyRank: null,
-        prevWeeklyRank: null,
+        prevRank: null,
         rankHistory: buildSampleHistory([6, 6, 5, 5, 4]),
         liked: false
       },
@@ -1741,13 +1734,11 @@
         artist: '솔리드 (Solid)',
         youtubeId: 'xX7nU6B-vG8',
         url: 'https://www.youtube.com/watch?v=xX7nU6B-vG8',
-        score: 440,
+        score: 360,
         ytViews: 4700000,
-        dailyPlays: 4,
         weeklyPlays: 15,
         totalPlays: 52,
-        prevDailyRank: 4,
-        prevWeeklyRank: 5,
+        prevRank: 5,
         rankHistory: buildSampleHistory([3, 4, 4, 5, 5, 5, 5]),
         liked: false
       },
@@ -1757,21 +1748,18 @@
         artist: '쿨 (COOL)',
         youtubeId: 'w5c1t3u4P4Q',
         url: 'https://www.youtube.com/watch?v=w5c1t3u4P4Q',
-        score: 425,
+        score: 330,
         ytViews: 11300000,
-        dailyPlays: 3,
         weeklyPlays: 12,
         totalPlays: 47,
-        prevDailyRank: 1,
-        prevWeeklyRank: 2,
+        prevRank: 2,
         rankHistory: buildSampleHistory([1, 1, 2, 3, 5, 6, 6]),
         liked: true
       }
     ];
 
     let songs = [];
-    let chartPeriod = 'weekly';
-    let currentSort = 'weighted';
+    let currentSort = 'settled_rank';
     let filterLikedOnly = false;
     let currentPlayingId = null;
     let editingSongId = null;
@@ -1801,7 +1789,8 @@
       const now = new Date();
       const day = now.getDay();
       const diffToMonday = now.getDate() - day + (day === 0 ? -6 : 1);
-      const monday = new Date(now.setDate(diffToMonday));
+      const monday = new Date(now);
+      monday.setDate(diffToMonday);
       return `${monday.getFullYear()}-W${String(monday.getMonth() + 1).padStart(2, '0')}-${String(monday.getDate()).padStart(2, '0')}`;
     }
 
@@ -1870,7 +1859,6 @@
       toast._timer = setTimeout(() => toast.classList.remove('show'), 2800);
     }
 
-    // Build Safe Embed URL for Direct Iframe Injection
     function buildEmbedIframeUrl(videoId, autoPlay = false) {
       const originParam = window.location.protocol.startsWith('http')
         ? `&origin=${encodeURIComponent(window.location.origin)}`
@@ -1949,22 +1937,158 @@
       ytPlayer.seekTo(dur * ratio, true);
     });
 
+    /**
+     * WEIGHTED FORMULA HELPER (60% Score + 10% Views + 30% Dual Play Counts)
+     * - Chart Score (60%): (score / 500) * 60 -> Max 60.0 pts
+     * - YouTube Views (10%): Log-scaled relative to max views -> Max 10.0 pts
+     * - Play Counts (30%): Weekly Plays (15% max) + Cumulative Total Plays (15% max) -> Max 30.0 pts
+     */
+    function calculateLiveFormulaMetrics(songList) {
+      const maxLogViews = Math.max(1, ...songList.map(s => Math.log10((Number(s.ytViews) || 0) + 1)));
+      const maxWeeklyPlays = Math.max(1, ...songList.map(s => Number(s.weeklyPlays) || 0));
+      const maxTotalPlays = Math.max(1, ...songList.map(s => Number(s.totalPlays) || 0));
+
+      return songList.map(s => {
+        const clampedScore = Math.min(MAX_SCORE_LIMIT, Math.max(0, Number(s.score) || 0));
+        const wkPlays = Math.max(0, Number(s.weeklyPlays) || 0);
+        const totPlays = Math.max(0, Number(s.totalPlays) || 0);
+
+        // 1. Score 60%
+        const liveScorePart = (clampedScore / MAX_SCORE_LIMIT) * 60;
+        // 2. Views 10%
+        const logV = Math.log10((Number(s.ytViews) || 0) + 1);
+        const liveViewsPart = maxLogViews > 0 ? (logV / maxLogViews) * 10 : 0;
+        // 3. Dual Plays 30% (15% Weekly + 15% Cumulative Total)
+        const wkPart = wkPlays > 0 ? (wkPlays / maxWeeklyPlays) * 15 : 0;
+        const totPart = totPlays > 0 ? (totPlays / maxTotalPlays) * 15 : 0;
+        const livePlaysPart = wkPart + totPart;
+
+        const liveTotal = Number((liveScorePart + liveViewsPart + livePlaysPart).toFixed(2));
+
+        return {
+          id: s.id,
+          liveScorePart: Number(liveScorePart.toFixed(1)),
+          liveViewsPart: Number(liveViewsPart.toFixed(1)),
+          livePlaysPart: Number(livePlaysPart.toFixed(1)),
+          liveWkPart: Number(wkPart.toFixed(1)),
+          liveTotPart: Number(totPart.toFixed(1)),
+          liveTotal
+        };
+      });
+    }
+
+    /**
+     * MIDNIGHT (00:00) SETTLEMENT ENGINE
+     * Locks in official ranks (`settledRank`) and official scores (`settledTotal`) once per day at 00:00
+     * (or when user clicks Manual Midnight Settlement).
+     */
+    function performMidnightSettlement(isInitialBoot = false, resetWeeklyNow = false) {
+      const liveMetrics = calculateLiveFormulaMetrics(songs);
+      const metricMap = new Map(liveMetrics.map(m => [m.id, m]));
+
+      // Sort by newly calculated liveTotal to determine new official ranks
+      const sortedForRank = [...songs].sort((a, b) => {
+        const ma = metricMap.get(a.id);
+        const mb = metricMap.get(b.id);
+        return (mb.liveTotal - ma.liveTotal) ||
+               ((b.weeklyPlays + b.totalPlays) - (a.weeklyPlays + a.totalPlays)) ||
+               (b.score - a.score);
+      });
+
+      const newRankMap = new Map();
+      sortedForRank.forEach((s, idx) => newRankMap.set(s.id, idx + 1));
+
+      const todayShort = getTodayShortLabel();
+
+      songs.forEach(s => {
+        const m = metricMap.get(s.id);
+        const newRank = newRankMap.get(s.id);
+
+        if (!isInitialBoot && s.settledRank && s.settledRank > 0) {
+          s.prevRank = s.settledRank;
+        }
+
+        s.settledRank = newRank;
+        s.settledTotal = m.liveTotal;
+        s.settledScorePart = m.liveScorePart;
+        s.settledViewsPart = m.liveViewsPart;
+        s.settledPlaysPart = m.livePlaysPart;
+
+        if (!Array.isArray(s.rankHistory)) {
+          s.rankHistory = [];
+        }
+        const len = s.rankHistory.length;
+        if (len > 0 && s.rankHistory[len - 1].date === todayShort) {
+          s.rankHistory[len - 1].rank = newRank;
+        } else {
+          s.rankHistory.push({ date: todayShort, rank: newRank });
+          if (s.rankHistory.length > 7) {
+            s.rankHistory = s.rankHistory.slice(-7);
+          }
+        }
+
+        if (resetWeeklyNow) {
+          s.weeklyPlays = 0;
+        }
+      });
+
+      const todayKey = getTodayDateString();
+      const weekKey = getCurrentWeekMondayString();
+      const meta = {
+        lastSettledDate: todayKey,
+        lastWeekKey: weekKey,
+        lastSettledLabel: `${todayKey} 00:00 정산 기준`
+      };
+      localStorage.setItem(SETTLEMENT_META_KEY, JSON.stringify(meta));
+      document.getElementById('lastSettlementLabel').textContent = `마지막 0시 정산: ${meta.lastSettledLabel}`;
+      saveSongs();
+    }
+
+    function checkMidnightAndWeeklyRollover() {
+      const todayKey = getTodayDateString();
+      const weekKey = getCurrentWeekMondayString();
+      let meta = null;
+      try {
+        meta = JSON.parse(localStorage.getItem(SETTLEMENT_META_KEY));
+      } catch (e) {}
+
+      // Check if any song is missing settledRank (first time boot)
+      const needsInitSettlement = songs.some(s => typeof s.settledRank !== 'number' || typeof s.settledTotal !== 'number');
+
+      if (!meta || needsInitSettlement) {
+        performMidnightSettlement(true, false);
+        return;
+      }
+
+      if (meta.lastSettledDate !== todayKey) {
+        // Midnight (00:00) has passed! Settle yesterday's accumulated scores & plays, and if new week, reset weeklyPlays after settling
+        const isNewWeek = meta.lastWeekKey !== weekKey;
+        performMidnightSettlement(false, isNewWeek);
+        showToast(isNewWeek
+          ? '🕛 0시 자정 정산 및 월요일 주간 재생횟수 초기화가 완료되었습니다!'
+          : '🕛 0시 자정 정산이 완료되어 오늘의 새로운 순위가 갱신되었습니다!');
+      } else {
+        document.getElementById('lastSettlementLabel').textContent = `마지막 0시 정산: ${meta.lastSettledLabel || (todayKey + ' 00:00')}`;
+      }
+    }
+
     function normalizeSongRecord(s, index = 0) {
       const vid = extractYoutubeId(s.youtubeId || s.url || '');
       const defaultRank = index + 1;
-      const prevRank = (s.prevWeeklyRank && Number(s.prevWeeklyRank) > 0)
-        ? Number(s.prevWeeklyRank)
-        : defaultRank;
+      const prevRank = (s.prevRank !== undefined && s.prevRank !== null)
+        ? Number(s.prevRank)
+        : ((s.prevWeeklyRank && Number(s.prevWeeklyRank) > 0) ? Number(s.prevWeeklyRank) : null);
 
       let history = Array.isArray(s.rankHistory) ? s.rankHistory : null;
       if (!history || history.length === 0) {
         history = buildSampleHistory([
-          Math.max(1, prevRank + 1),
-          prevRank,
-          prevRank,
+          prevRank || defaultRank,
           defaultRank
         ]);
       }
+
+      const wkPlays = Math.max(0, Number(s.weeklyPlays) || 0);
+      const totPlays = Math.max(wkPlays, Number(s.totalPlays) || wkPlays);
 
       return {
         id: s.id || ('song-' + Date.now() + '-' + index),
@@ -1972,293 +2096,57 @@
         artist: String(s.artist || 'Unknown Artist').trim(),
         youtubeId: vid || '',
         url: s.url || (vid ? `https://www.youtube.com/watch?v=${vid}` : ''),
-        score: Math.min(MAX_SCORE_LIMIT, Math.max(0, Number(s.score) || 85)),
+        score: Math.min(MAX_SCORE_LIMIT, Math.max(0, Number(s.score) ?? DEFAULT_NEW_SONG_SCORE)),
         ytViews: Math.max(0, Number(s.ytViews) || 100000),
-        dailyPlays: Math.max(0, Number(s.dailyPlays) || 0),
-        weeklyPlays: Math.max(0, Number(s.weeklyPlays) || 0),
-        totalPlays: Math.max(0, Number(s.totalPlays) || ((Number(s.weeklyPlays) || 0) + (Number(s.dailyPlays) || 0))),
-        prevDailyRank: (s.prevDailyRank && Number(s.prevDailyRank) > 0) ? Number(s.prevDailyRank) : null,
-        prevWeeklyRank: (s.prevWeeklyRank && Number(s.prevWeeklyRank) > 0) ? Number(s.prevWeeklyRank) : null,
+        weeklyPlays: wkPlays,
+        totalPlays: totPlays,
+        prevRank: (prevRank && prevRank > 0) ? prevRank : null,
+        settledRank: typeof s.settledRank === 'number' ? s.settledRank : null,
+        settledTotal: typeof s.settledTotal === 'number' ? s.settledTotal : null,
+        settledScorePart: typeof s.settledScorePart === 'number' ? s.settledScorePart : 0,
+        settledViewsPart: typeof s.settledViewsPart === 'number' ? s.settledViewsPart : 0,
+        settledPlaysPart: typeof s.settledPlaysPart === 'number' ? s.settledPlaysPart : 0,
         rankHistory: history.slice(-7),
         liked: Boolean(s.liked)
       };
     }
 
-    function syncTodayRankHistory(enrichedList) {
-      const todayLabel = getTodayShortLabel();
-      let updated = false;
+    // Enrich songs with both Locked Midnight Official Rank/Score AND Next 00:00 Expected Preview
+    function computeEnrichedSongs() {
+      const liveMetrics = calculateLiveFormulaMetrics(songs);
+      const liveMap = new Map(liveMetrics.map(m => [m.id, m]));
 
-      enrichedList.forEach(item => {
-        const target = songs.find(s => s.id === item.id);
-        if (!target) return;
-        if (!Array.isArray(target.rankHistory)) {
-          target.rankHistory = [];
-        }
-        const len = target.rankHistory.length;
-        if (len > 0 && target.rankHistory[len - 1].date === todayLabel) {
-          if (target.rankHistory[len - 1].rank !== item.currentRank) {
-            target.rankHistory[len - 1].rank = item.currentRank;
-            updated = true;
-          }
-        } else {
-          target.rankHistory.push({ date: todayLabel, rank: item.currentRank });
-          if (target.rankHistory.length > 7) {
-            target.rankHistory = target.rankHistory.slice(-7);
-          }
-          updated = true;
-        }
-        item.rankHistory = target.rankHistory;
-      });
-
-      if (updated) {
-        saveSongs();
-      }
-    }
-
-    function renderDailyRankTrendSvg(song) {
-      const container = document.getElementById('npTrendChartContainer');
-      const summaryEl = document.getElementById('npTrendSummaryText');
-      if (!container || !song) return;
-
-      const history = Array.isArray(song.rankHistory) && song.rankHistory.length > 0
-        ? song.rankHistory
-        : [{ date: getTodayShortLabel(), rank: song.currentRank || 1 }];
-
-      const ranks = history.map(h => Number(h.rank) || 1);
-      const bestRank = Math.min(...ranks);
-      const worstRank = Math.max(...ranks);
-      summaryEl.textContent = `최근 ${history.length}일 최고 #${bestRank} • 현재 #${song.currentRank}`;
-
-      const width = 440;
-      const height = 76;
-      const padLeft = 30;
-      const padRight = 24;
-      const padTop = 18;
-      const padBottom = 20;
-
-      const maxScaleRank = Math.max(6, songs.length, worstRank);
-      const plotW = width - padLeft - padRight;
-      const plotH = height - padTop - padBottom;
-
-      const points = history.map((pt, idx) => {
-        const x = history.length === 1
-          ? padLeft + plotW / 2
-          : padLeft + (idx / (history.length - 1)) * plotW;
-        const r = Math.min(maxScaleRank, Math.max(1, Number(pt.rank) || 1));
-        const ratio = maxScaleRank === 1 ? 0 : (r - 1) / (maxScaleRank - 1);
-        const y = padTop + ratio * plotH;
-        return { x: Number(x.toFixed(1)), y: Number(y.toFixed(1)), date: pt.date, rank: r };
-      });
-
-      const polylinePoints = points.map(p => `${p.x},${p.y}`).join(' ');
-      const areaPoints = `${points[0].x},${padTop + plotH} ${polylinePoints} ${points[points.length - 1].x},${padTop + plotH}`;
-
-      const circlesAndLabels = points.map((p, idx) => {
-        const isLast = idx === points.length - 1;
-        const dotColor = isLast ? '#fb7185' : '#38bdf8';
-        const dotRadius = isLast ? 4.5 : 3.2;
-        return `
-          <circle cx="${p.x}" cy="${p.y}" r="${dotRadius}" fill="${dotColor}" stroke="#0f172a" stroke-width="1.5" />
-          <text x="${p.x}" y="${p.y - 6}" text-anchor="middle" fill="${isLast ? '#fde68a' : '#e2e8f0'}" font-size="9.5" font-weight="800" font-family="Montserrat, sans-serif">#${p.rank}</text>
-          <text x="${p.x}" y="${height - 4}" text-anchor="middle" fill="#94a3b8" font-size="8.5" font-weight="600" font-family="Montserrat, sans-serif">${p.date}</text>
-        `;
-      }).join('');
-
-      container.innerHTML = `
-        <svg viewBox="0 0 ${width} ${height}" width="100%" height="100%" preserveAspectRatio="none">
-          <defs>
-            <linearGradient id="rankTrendGrad" x1="0" y1="0" x2="0" y2="1">
-              <stop offset="0%" stop-color="#f43f5e" stop-opacity="0.38" />
-              <stop offset="100%" stop-color="#0f172a" stop-opacity="0.0" />
-            </linearGradient>
-          </defs>
-          <line x1="${padLeft}" y1="${padTop}" x2="${width - padRight}" y2="${padTop}" stroke="rgba(255,255,255,0.1)" stroke-dasharray="3,3" />
-          <line x1="${padLeft}" y1="${padTop + plotH}" x2="${width - padRight}" y2="${padTop + plotH}" stroke="rgba(255,255,255,0.08)" />
-          <text x="4" y="${padTop + 3}" fill="#64748b" font-size="8.5" font-weight="700" font-family="Montserrat">#1</text>
-          <text x="4" y="${padTop + plotH + 3}" fill="#64748b" font-size="8.5" font-weight="700" font-family="Montserrat">#${maxScaleRank}</text>
-
-          ${points.length > 1 ? `<polygon points="${areaPoints}" fill="url(#rankTrendGrad)" />` : ''}
-          ${points.length > 1 ? `<polyline fill="none" stroke="#f43f5e" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" points="${polylinePoints}" />` : ''}
-          ${circlesAndLabels}
-        </svg>
-      `;
-    }
-
-    function loadSongs() {
-      try {
-        const saved = localStorage.getItem(STORAGE_KEY) || localStorage.getItem('billboard_90s_favorite_songs_v5_weighted');
-        const rawList = saved ? JSON.parse(saved) : DEFAULT_SONGS;
-        songs = rawList.map((s, idx) => normalizeSongRecord(s, idx));
-      } catch (e) {
-        songs = DEFAULT_SONGS.map((s, idx) => normalizeSongRecord(s, idx));
-      }
-
-      launchMode = 'embed';
-      document.getElementById('launchModeSelect').value = 'embed';
-
-      checkAutoPeriodRollover();
-    }
-
-    function saveSongs() {
-      localStorage.setItem(STORAGE_KEY, JSON.stringify(songs));
-    }
-
-    function exportChartToJsonFile() {
-      const timestamp = getFormattedNow();
-      let periodMeta = null;
-      try {
-        periodMeta = JSON.parse(localStorage.getItem(PERIOD_META_KEY));
-      } catch (e) {}
-
-      const backupPayload = {
-        app: 'MY_PICK_MUSIC_CHART',
-        version: 11,
-        maxScoreLimit: MAX_SCORE_LIMIT,
-        exportedAt: timestamp,
-        chartPeriod,
-        periodMeta,
-        songs
-      };
-
-      const jsonString = JSON.stringify(backupPayload, null, 2);
-      const blob = new Blob([jsonString], { type: 'application/json;charset=utf-8;' });
-      const link = document.createElement('a');
-      link.href = URL.createObjectURL(blob);
-      link.download = `mypick_music_backup_${timestamp.replace(/[: ]/g, '_')}.json`;
-      link.click();
-      showToast(`💾 총 ${songs.length}곡의 차트 및 일별 순위 추이 데이터가 백업되었습니다!`);
-    }
-
-    function handleJsonBackupFileSelect(file) {
-      if (!file) return;
-      const reader = new FileReader();
-      reader.onload = (e) => {
-        try {
-          const parsed = JSON.parse(e.target.result);
-          const candidateList = Array.isArray(parsed) ? parsed : (Array.isArray(parsed.songs) ? parsed.songs : null);
-
-          if (!candidateList || candidateList.length === 0) {
-            showToast('⚠️ 유효한 차트 곡 데이터가 없는 JSON 파일입니다.');
-            return;
-          }
-
-          pendingRestoredPayload = {
-            songs: candidateList.map((s, idx) => normalizeSongRecord(s, idx)),
-            periodMeta: parsed.periodMeta || null,
-            exportedAt: parsed.exportedAt || '알 수 없음'
-          };
-
-          document.getElementById('jsonRestoreSummaryText').textContent =
-            `백업 파일(${file.name})에서 총 ${pendingRestoredPayload.songs.length}곡의 데이터를 확인했습니다. (백업 시각: ${pendingRestoredPayload.exportedAt})`;
-          document.getElementById('jsonRestoreModal').classList.add('open');
-        } catch (err) {
-          showToast('❌ JSON 파일 형식이 올바르지 않습니다.');
-        }
-      };
-      reader.readAsText(file, 'utf-8');
-    }
-
-    function checkAutoPeriodRollover() {
-      const todayKey = getTodayDateString();
-      const weekKey = getCurrentWeekMondayString();
-      let meta = null;
-      try {
-        meta = JSON.parse(localStorage.getItem(PERIOD_META_KEY));
-      } catch (e) {}
-
-      if (!meta) {
-        meta = { lastDate: todayKey, lastWeek: weekKey, lastSavedText: '초기 샘플 기준' };
-        localStorage.setItem(PERIOD_META_KEY, JSON.stringify(meta));
-      } else {
-        let changed = false;
-        if (meta.lastDate !== todayKey) {
-          const dailyRanked = computeEnrichedSongs('daily').sort((a, b) => a.currentRank - b.currentRank);
-          const dMap = new Map(dailyRanked.map(s => [s.id, s.currentRank]));
-          songs.forEach(s => {
-            s.prevDailyRank = dMap.get(s.id) || s.prevDailyRank;
-            s.dailyPlays = 0;
-          });
-          meta.lastDate = todayKey;
-          changed = true;
-        }
-        if (meta.lastWeek !== weekKey) {
-          const weeklyRanked = computeEnrichedSongs('weekly').sort((a, b) => a.currentRank - b.currentRank);
-          const wMap = new Map(weeklyRanked.map(s => [s.id, s.currentRank]));
-          songs.forEach(s => {
-            s.prevWeeklyRank = wMap.get(s.id) || s.prevWeeklyRank;
-            s.weeklyPlays = 0;
-          });
-          meta.lastWeek = weekKey;
-          changed = true;
-        }
-        if (changed) {
-          meta.lastSavedText = `자동 기간 전환 (${todayKey})`;
-          localStorage.setItem(PERIOD_META_KEY, JSON.stringify(meta));
-          saveSongs();
-        }
-      }
-
-      document.getElementById('lastSnapshotLabel').textContent = `기준 순위: ${meta.lastSavedText || '초기 샘플 기준'}`;
-    }
-
-    // 500-Point Max Score Weighted Calculation (500 pts -> 60% full weight)
-    function computeEnrichedSongs(targetPeriod = chartPeriod) {
-      const maxScoreBase = MAX_SCORE_LIMIT; // 500 points = 60.0 weighted points
-      const maxLogViews = Math.max(1, ...songs.map(s => Math.log10((Number(s.ytViews) || 0) + 1)));
-      const maxPeriodPlays = Math.max(1, ...songs.map(s =>
-        targetPeriod === 'daily' ? (Number(s.dailyPlays) || 0) : (Number(s.weeklyPlays) || 0)
-      ));
-
-      const calculated = songs.map(s => {
-        const periodPlays = targetPeriod === 'daily' ? (Number(s.dailyPlays) || 0) : (Number(s.weeklyPlays) || 0);
-        const prevRank = targetPeriod === 'daily' ? s.prevDailyRank : s.prevWeeklyRank;
-
-        const clampedScore = Math.min(MAX_SCORE_LIMIT, Math.max(0, Number(s.score) || 0));
-        const scorePart = (clampedScore / maxScoreBase) * 60;
-        const logV = Math.log10((Number(s.ytViews) || 0) + 1);
-        const viewsPart = maxLogViews > 0 ? (logV / maxLogViews) * 10 : 0;
-        const playsPart = periodPlays > 0 ? (periodPlays / maxPeriodPlays) * 30 : 0;
-
-        const weightedTotal = Number((scorePart + viewsPart + playsPart).toFixed(2));
+      return songs.map((s, idx) => {
+        const live = liveMap.get(s.id) || {
+          liveScorePart: 0, liveViewsPart: 0, livePlaysPart: 0, liveTotal: 0
+        };
+        const currentRank = s.settledRank || (idx + 1);
+        const settledTotal = typeof s.settledTotal === 'number' ? s.settledTotal : live.liveTotal;
+        const diff = (s.prevRank && s.prevRank > 0) ? (s.prevRank - currentRank) : null;
 
         return {
           ...s,
-          score: clampedScore,
-          periodPlays,
-          prevRank,
-          scorePart: Number(scorePart.toFixed(1)),
-          viewsPart: Number(viewsPart.toFixed(1)),
-          playsPart: Number(playsPart.toFixed(1)),
-          weightedTotal
+          currentRank,
+          settledTotal,
+          scorePart: typeof s.settledScorePart === 'number' ? s.settledScorePart : live.liveScorePart,
+          viewsPart: typeof s.settledViewsPart === 'number' ? s.settledViewsPart : live.liveViewsPart,
+          playsPart: typeof s.settledPlaysPart === 'number' ? s.settledPlaysPart : live.livePlaysPart,
+          nextExpectedTotal: live.liveTotal,
+          diff
         };
-      });
-
-      const officialOrder = [...calculated].sort((a, b) =>
-        b.weightedTotal - a.weightedTotal ||
-        b.periodPlays - a.periodPlays ||
-        b.score - a.score
-      );
-
-      const rankMap = new Map();
-      officialOrder.forEach((item, idx) => rankMap.set(item.id, idx + 1));
-
-      return calculated.map(item => {
-        const currentRank = rankMap.get(item.id);
-        const diff = (item.prevRank && item.prevRank > 0) ? (item.prevRank - currentRank) : null;
-        return { ...item, currentRank, diff };
       });
     }
 
     function getSortedSongs() {
-      let list = computeEnrichedSongs(chartPeriod);
+      let list = computeEnrichedSongs();
       if (filterLikedOnly) {
         list = list.filter(s => s.liked);
       }
 
-      if (currentSort === 'weighted') {
+      if (currentSort === 'settled_rank') {
         list.sort((a, b) => a.currentRank - b.currentRank);
-      } else if (currentSort === 'plays_period') {
-        list.sort((a, b) => b.periodPlays - a.periodPlays || a.currentRank - b.currentRank);
+      } else if (currentSort === 'plays_weekly') {
+        list.sort((a, b) => b.weeklyPlays - a.weeklyPlays || a.currentRank - b.currentRank);
       } else if (currentSort === 'plays_total') {
         list.sort((a, b) => b.totalPlays - a.totalPlays || a.currentRank - b.currentRank);
       } else if (currentSort === 'raw_score') {
@@ -2332,18 +2220,84 @@
       }
     }
 
+    function renderDailyRankTrendSvg(song) {
+      const container = document.getElementById('npTrendChartContainer');
+      const summaryEl = document.getElementById('npTrendSummaryText');
+      if (!container || !song) return;
+
+      const history = Array.isArray(song.rankHistory) && song.rankHistory.length > 0
+        ? song.rankHistory
+        : [{ date: getTodayShortLabel(), rank: song.currentRank || 1 }];
+
+      const ranks = history.map(h => Number(h.rank) || 1);
+      const bestRank = Math.min(...ranks);
+      const worstRank = Math.max(...ranks);
+      summaryEl.textContent = `최근 ${history.length}일 최고 #${bestRank} • 0시 공식 #${song.currentRank}`;
+
+      const width = 440;
+      const height = 76;
+      const padLeft = 30;
+      const padRight = 24;
+      const padTop = 18;
+      const padBottom = 20;
+
+      const maxScaleRank = Math.max(6, songs.length, worstRank);
+      const plotW = width - padLeft - padRight;
+      const plotH = height - padTop - padBottom;
+
+      const points = history.map((pt, idx) => {
+        const x = history.length === 1
+          ? padLeft + plotW / 2
+          : padLeft + (idx / (history.length - 1)) * plotW;
+        const r = Math.min(maxScaleRank, Math.max(1, Number(pt.rank) || 1));
+        const ratio = maxScaleRank === 1 ? 0 : (r - 1) / (maxScaleRank - 1);
+        const y = padTop + ratio * plotH;
+        return { x: Number(x.toFixed(1)), y: Number(y.toFixed(1)), date: pt.date, rank: r };
+      });
+
+      const polylinePoints = points.map(p => `${p.x},${p.y}`).join(' ');
+      const areaPoints = `${points[0].x},${padTop + plotH} ${polylinePoints} ${points[points.length - 1].x},${padTop + plotH}`;
+
+      const circlesAndLabels = points.map((p, idx) => {
+        const isLast = idx === points.length - 1;
+        const dotColor = isLast ? '#fb7185' : '#38bdf8';
+        const dotRadius = isLast ? 4.5 : 3.2;
+        return `
+          <circle cx="${p.x}" cy="${p.y}" r="${dotRadius}" fill="${dotColor}" stroke="#0f172a" stroke-width="1.5" />
+          <text x="${p.x}" y="${p.y - 6}" text-anchor="middle" fill="${isLast ? '#fde68a' : '#e2e8f0'}" font-size="9.5" font-weight="800" font-family="Montserrat, sans-serif">#${p.rank}</text>
+          <text x="${p.x}" y="${height - 4}" text-anchor="middle" fill="#94a3b8" font-size="8.5" font-weight="600" font-family="Montserrat, sans-serif">${p.date}</text>
+        `;
+      }).join('');
+
+      container.innerHTML = `
+        <svg viewBox="0 0 ${width} ${height}" width="100%" height="100%" preserveAspectRatio="none">
+          <defs>
+            <linearGradient id="rankTrendGrad" x1="0" y1="0" x2="0" y2="1">
+              <stop offset="0%" stop-color="#f43f5e" stop-opacity="0.38" />
+              <stop offset="100%" stop-color="#0f172a" stop-opacity="0.0" />
+            </linearGradient>
+          </defs>
+          <line x1="${padLeft}" y1="${padTop}" x2="${width - padRight}" y2="${padTop}" stroke="rgba(255,255,255,0.1)" stroke-dasharray="3,3" />
+          <line x1="${padLeft}" y1="${padTop + plotH}" x2="${width - padRight}" y2="${padTop + plotH}" stroke="rgba(255,255,255,0.08)" />
+          <text x="4" y="${padTop + 3}" fill="#64748b" font-size="8.5" font-weight="700" font-family="Montserrat">#1</text>
+          <text x="4" y="${padTop + plotH + 3}" fill="#64748b" font-size="8.5" font-weight="700" font-family="Montserrat">#${maxScaleRank}</text>
+
+          ${points.length > 1 ? `<polygon points="${areaPoints}" fill="url(#rankTrendGrad)" />` : ''}
+          ${points.length > 1 ? `<polyline fill="none" stroke="#f43f5e" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" points="${polylinePoints}" />` : ''}
+          ${circlesAndLabels}
+        </svg>
+      `;
+    }
+
     function updateNowPlayingInfoPanel(enrichedSong) {
       if (!enrichedSong) return;
-      const isDaily = chartPeriod === 'daily';
-      const periodEng = isDaily ? 'DAILY' : 'WEEKLY';
-      const periodKor = isDaily ? '일간' : '주간';
       const moveInfo = getMovementInfo(enrichedSong.currentRank, enrichedSong.prevRank);
 
       const thumbUrl = enrichedSong.youtubeId
         ? `https://i.ytimg.com/vi/${enrichedSong.youtubeId}/hqdefault.jpg`
         : 'https://via.placeholder.com/240x180/111111/ffffff?text=MUSIC';
 
-      document.getElementById('npRankBadge').textContent = `NOW PLAYING • ${periodEng} #${enrichedSong.currentRank}`;
+      document.getElementById('npRankBadge').textContent = `NOW PLAYING • 0시 공식 #${enrichedSong.currentRank}`;
       document.getElementById('npMoveBadge').textContent = moveInfo.plainText;
       document.getElementById('npThumbImg').src = thumbUrl;
       document.getElementById('npTitleText').textContent = enrichedSong.title;
@@ -2353,22 +2307,21 @@
       likeBtn.classList.toggle('liked', Boolean(enrichedSong.liked));
       likeBtn.textContent = enrichedSong.liked ? '♥ LIKED' : '♡ LIKE';
 
-      document.getElementById('npTotalScore').textContent = `${enrichedSong.weightedTotal.toFixed(1)} PTS`;
-      document.getElementById('npPrevRankText').textContent =
-        `이전 ${periodKor} 순위: ${enrichedSong.prevRank ? enrichedSong.prevRank + '위' : 'NEW'}`;
+      document.getElementById('npTotalScore').textContent = `${enrichedSong.settledTotal.toFixed(1)} PTS`;
+      document.getElementById('npNextExpectedText').textContent =
+        `내일 0시 예상: ${enrichedSong.nextExpectedTotal.toFixed(1)}점`;
 
       const npScoreInput = document.getElementById('npScoreInput');
       if (document.activeElement !== npScoreInput) {
         npScoreInput.value = enrichedSong.score;
       }
-      document.getElementById('npChartScoreSub').textContent = `환산 ${enrichedSong.scorePart}점 / 60`;
+      document.getElementById('npChartScoreSub').textContent = `0시 정산 반영: ${enrichedSong.scorePart}점 / 60`;
 
-      document.getElementById('npPlaysLabel').textContent = `${periodKor} 재생 (30%)`;
-      document.getElementById('npPlaysVal').textContent = `${enrichedSong.periodPlays}회`;
-      document.getElementById('npPlaysSub').textContent = `환산 ${enrichedSong.playsPart}점 • 총 ${enrichedSong.totalPlays}회`;
+      document.getElementById('npPlaysVal').textContent = `주간 ${enrichedSong.weeklyPlays} • 누적 ${enrichedSong.totalPlays}`;
+      document.getElementById('npPlaysSub').textContent = `0시 정산 반영: ${enrichedSong.playsPart}점 / 30`;
 
       document.getElementById('npViewsVal').textContent = formatKoreanNumber(enrichedSong.ytViews);
-      document.getElementById('npViewsSub').textContent = `환산 ${enrichedSong.viewsPart}점 / 10`;
+      document.getElementById('npViewsSub').textContent = `0시 정산 반영: ${enrichedSong.viewsPart}점 / 10`;
 
       renderDailyRankTrendSvg(enrichedSong);
     }
@@ -2376,10 +2329,82 @@
     function incrementSongPlayCount(songId, delta = 1) {
       const song = songs.find(s => s.id === songId);
       if (!song) return;
-      song.dailyPlays = Math.max(0, (Number(song.dailyPlays) || 0) + delta);
       song.weeklyPlays = Math.max(0, (Number(song.weeklyPlays) || 0) + delta);
       song.totalPlays = Math.max(0, (Number(song.totalPlays) || 0) + delta);
       saveSongs();
+    }
+
+    function loadSongs() {
+      try {
+        const saved = localStorage.getItem(STORAGE_KEY) || localStorage.getItem('billboard_90s_favorite_songs_v6_web');
+        const rawList = saved ? JSON.parse(saved) : DEFAULT_SONGS;
+        songs = rawList.map((s, idx) => normalizeSongRecord(s, idx));
+      } catch (e) {
+        songs = DEFAULT_SONGS.map((s, idx) => normalizeSongRecord(s, idx));
+      }
+
+      launchMode = 'embed';
+      document.getElementById('launchModeSelect').value = 'embed';
+
+      checkMidnightAndWeeklyRollover();
+    }
+
+    function saveSongs() {
+      localStorage.setItem(STORAGE_KEY, JSON.stringify(songs));
+    }
+
+    function exportChartToJsonFile() {
+      const timestamp = getFormattedNow();
+      let settlementMeta = null;
+      try {
+        settlementMeta = JSON.parse(localStorage.getItem(SETTLEMENT_META_KEY));
+      } catch (e) {}
+
+      const backupPayload = {
+        app: 'MY_PICK_MUSIC_CHART',
+        version: 12,
+        maxScoreLimit: MAX_SCORE_LIMIT,
+        exportedAt: timestamp,
+        settlementMeta,
+        songs
+      };
+
+      const jsonString = JSON.stringify(backupPayload, null, 2);
+      const blob = new Blob([jsonString], { type: 'application/json;charset=utf-8;' });
+      const link = document.createElement('a');
+      link.href = URL.createObjectURL(blob);
+      link.download = `mypick_music_backup_${timestamp.replace(/[: ]/g, '_')}.json`;
+      link.click();
+      showToast(`💾 총 ${songs.length}곡의 차트 및 0시 정산 데이터가 백업되었습니다!`);
+    }
+
+    function handleJsonBackupFileSelect(file) {
+      if (!file) return;
+      const reader = new FileReader();
+      reader.onload = (e) => {
+        try {
+          const parsed = JSON.parse(e.target.result);
+          const candidateList = Array.isArray(parsed) ? parsed : (Array.isArray(parsed.songs) ? parsed.songs : null);
+
+          if (!candidateList || candidateList.length === 0) {
+            showToast('⚠️ 유효한 차트 곡 데이터가 없는 JSON 파일입니다.');
+            return;
+          }
+
+          pendingRestoredPayload = {
+            songs: candidateList.map((s, idx) => normalizeSongRecord(s, idx)),
+            settlementMeta: parsed.settlementMeta || null,
+            exportedAt: parsed.exportedAt || '알 수 없음'
+          };
+
+          document.getElementById('jsonRestoreSummaryText').textContent =
+            `백업 파일(${file.name})에서 총 ${pendingRestoredPayload.songs.length}곡의 데이터를 확인했습니다. (백업 시각: ${pendingRestoredPayload.exportedAt})`;
+          document.getElementById('jsonRestoreModal').classList.add('open');
+        } catch (err) {
+          showToast('❌ JSON 파일 형식이 올바르지 않습니다.');
+        }
+      };
+      reader.readAsText(file, 'utf-8');
     }
 
     function openDedicatedPopupWindow(song) {
@@ -2412,13 +2437,12 @@
       }
     }
 
-    // Pure In-Page Play Function
     function playSong(songId, autoStart = true, countPlay = false, overrideMode = null) {
       if (countPlay) {
         incrementSongPlayCount(songId, 1);
       }
 
-      const enrichedList = computeEnrichedSongs(chartPeriod);
+      const enrichedList = computeEnrichedSongs();
       const target = enrichedList.find(s => s.id === songId);
       if (!target) return;
 
@@ -2472,7 +2496,7 @@
       }
       const nextSong = queue[nextIndex];
       playSong(nextSong.id, true, true);
-      showToast(`⏭ 다음 곡 자동 전환 (${nextIndex + 1}/${queue.length}): '${nextSong.title}' (+1 재생 누적)`);
+      showToast(`⏭ 다음 곡 자동 전환 (${nextIndex + 1}/${queue.length}): '${nextSong.title}' (주간·누적 재생수 +1)`);
     }
 
     function buildYoutubePlaylistData() {
@@ -2512,7 +2536,7 @@
         popupWindowRef = window.open(playlistUrl, 'MyPickMusicPopupPlayer', features);
         if (popupWindowRef) {
           popupWindowRef.focus();
-          showToast(`🎵 현재 차트 ${totalCount}곡 재생목록 실행 및 재생횟수 +1 누적 완료!`);
+          showToast(`🎵 현재 차트 ${totalCount}곡 재생목록 실행 및 주간·누적 재생횟수 +1 반영!`);
         }
       } else {
         window.open(playlistUrl, '_blank');
@@ -2846,54 +2870,9 @@
       return `https://www.youtube.com/results?search_query=${encodeURIComponent(song.artist + ' ' + song.title)}`;
     }
 
-    function saveCurrentRanksAsPrevious(resetPlaysToo = false) {
-      const enriched = computeEnrichedSongs(chartPeriod);
-      const rankMap = new Map(enriched.map(s => [s.id, s.currentRank]));
-      const modeName = chartPeriod === 'daily' ? '일간(DAILY)' : '주간(WEEKLY)';
-
-      songs.forEach(s => {
-        if (chartPeriod === 'daily') {
-          s.prevDailyRank = rankMap.get(s.id);
-          if (resetPlaysToo) s.dailyPlays = 0;
-        } else {
-          s.prevWeeklyRank = rankMap.get(s.id);
-          if (resetPlaysToo) s.weeklyPlays = 0;
-        }
-      });
-
-      const nowStr = getFormattedNow();
-      const meta = {
-        lastDate: getTodayDateString(),
-        lastWeek: getCurrentWeekMondayString(),
-        lastSavedText: `${modeName} 저장 (${nowStr})`
-      };
-      localStorage.setItem(PERIOD_META_KEY, JSON.stringify(meta));
-      document.getElementById('lastSnapshotLabel').textContent = `기준 순위: ${meta.lastSavedText}`;
-
-      saveSongs();
-      renderChart();
-
-      if (resetPlaysToo) {
-        showToast(`🔄 ${modeName} 순위를 이전 순위로 넘기고 ${modeName} 재생횟수를 0으로 초기화했습니다!`);
-      } else {
-        showToast(`📌 현재 ${modeName} 순위가 [이전 순위] 기준점으로 저장되었습니다!`);
-      }
-    }
-
     function renderChart() {
-      const isDaily = chartPeriod === 'daily';
-      document.getElementById('chartModeTitleBadge').textContent = isDaily ? 'DAILY TOP CHART' : 'WEEKLY TOP CHART';
-      document.getElementById('formulaPlayLabel').textContent = isDaily ? '일간 재생횟수 30%' : '주간 재생횟수 30%';
-      document.getElementById('thCurrentRank').textContent = isDaily ? 'DAILY RANK' : 'WEEKLY RANK';
-      document.getElementById('thPrevRank').textContent = isDaily ? 'YESTERDAY' : 'LAST WEEK';
-      document.getElementById('thPlaysCol').textContent = isDaily ? '일간 재생횟수 (30%)' : '주간 재생횟수 (30%)';
+      const enrichedAll = computeEnrichedSongs().sort((a, b) => a.currentRank - b.currentRank);
 
-      const enrichedAll = computeEnrichedSongs(chartPeriod).sort((a, b) => a.currentRank - b.currentRank);
-
-      // Update today's rank snapshot in each song's 7-day history
-      syncTodayRankHistory(enrichedAll);
-
-      // Keep the Right-hand Now Playing Panel synced with latest rank/score/trend
       const activePlayingSong = enrichedAll.find(s => s.id === currentPlayingId) || enrichedAll[0];
       if (activePlayingSong) {
         currentPlayingId = activePlayingSong.id;
@@ -2919,9 +2898,8 @@
         if (isPlaying) tr.classList.add('is-playing');
         if (moveInfo.rowClass) tr.classList.add(moveInfo.rowClass);
 
-        const prevLabel = isDaily ? 'YESTERDAY' : 'LAST WK';
         const lastWeekHtml = song.prevRank
-          ? `<span class="lw-number">${song.prevRank}</span><span class="lw-sub">${prevLabel}</span>`
+          ? `<span class="lw-number">${song.prevRank}</span><span class="lw-sub">PREV 0시</span>`
           : `<span class="lw-number" style="color:#cbd5e1;">-</span><span class="lw-sub">DEBUT</span>`;
 
         let songCellInnerHtml = '';
@@ -2962,6 +2940,8 @@
           `;
         }
 
+        const isPendingChanged = Math.abs(song.nextExpectedTotal - song.settledTotal) >= 0.05;
+
         tr.innerHTML = `
           <td class="cell-rank">${rank}</td>
           <td class="cell-last-week">${lastWeekHtml}</td>
@@ -2971,38 +2951,39 @@
               <span class="move-desc">${moveInfo.descText}</span>
             </div>
           </td>
-          <td class="cell-song" ${isEditing ? '' : `data-play-id="${song.id}"`} title="${isEditing ? '곡 정보 수정 중' : `클릭하여 '${escapeHtmlAttr(song.title)}' 좌측 모니터 재생 (+1 재생횟수 누적)`}">
+          <td class="cell-song" ${isEditing ? '' : `data-play-id="${song.id}"`} title="${isEditing ? '곡 정보 수정 중' : `클릭하여 '${escapeHtmlAttr(song.title)}' 좌측 모니터 재생 (주간·누적 재생수 +1)`}">
             ${songCellInnerHtml}
           </td>
           <td class="cell-total-index">
-            <div class="total-index-val">${song.weightedTotal.toFixed(1)} <span style="font-size:0.72rem;">PTS</span></div>
+            <div class="total-index-val">${song.settledTotal.toFixed(1)} <span style="font-size:0.72rem;">PTS</span></div>
             <div class="index-breakdown">
-              <span title="내 점수 60% (500점 만점)">점수 ${song.scorePart}</span>
-              <span title="유튜브 조회수 10%">조회 ${song.viewsPart}</span>
-              <span title="재생횟수 30%">재생 ${song.playsPart}</span>
+              <span title="0시 정산 내 점수(60%)">점수 ${song.scorePart}</span>
+              <span title="0시 정산 조회수(10%)">조회 ${song.viewsPart}</span>
+              <span title="0시 정산 재생수(30%)">재생 ${song.playsPart}</span>
             </div>
+            ${isPendingChanged ? `<div class="pending-next-preview" title="내일 0시 정산 시 반영될 실시간 예상 종합 점수">⏳ 내일 0시 예상: ${song.nextExpectedTotal.toFixed(1)}점</div>` : ''}
           </td>
           <td class="cell-plays">
             <div class="play-counter-box">
-              <div class="play-main-line">
-                <button class="score-step-btn" data-play-delta="-1" data-id="${song.id}" title="재생횟수 -1">-1</button>
-                <span class="play-count-num">${song.periodPlays}회</span>
-                <button class="score-step-btn" data-play-delta="1" data-id="${song.id}" title="재생횟수 +1">+1</button>
+              <div class="play-dual-badges">
+                <span class="play-badge-wk" title="주간 단위로 초기화되는 재생횟수 (15% 반영)">주간 ${song.weeklyPlays}회</span>
+                <span class="play-badge-tot" title="차트 진입 이후 총 누적 재생횟수 (15% 반영)">누적 ${song.totalPlays}회</span>
               </div>
-              <div class="play-sub-line">
-                일간 ${song.dailyPlays} · 주간 ${song.weeklyPlays} · 총 ${song.totalPlays}회
+              <div class="play-step-row">
+                <button class="score-step-btn" data-play-delta="-1" data-id="${song.id}" title="주간 및 누적 재생횟수 -1">-1</button>
+                <button class="score-step-btn" data-play-delta="1" data-id="${song.id}" title="주간 및 누적 재생횟수 +1">+1</button>
               </div>
             </div>
           </td>
           <td class="cell-views">
-            <input type="number" class="views-input" value="${song.ytViews}" data-views-id="${song.id}" min="0" step="10000" title="유튜브 조회수 직접 수정 가능 (10% 반영)" />
+            <input type="number" class="views-input" value="${song.ytViews}" data-views-id="${song.id}" min="0" step="10000" title="유튜브 조회수 (다음 0시 정산 시 10% 반영)" />
             <span class="views-formatted">${formatKoreanNumber(song.ytViews)}</span>
           </td>
           <td class="cell-score">
             <div class="score-controller">
               <button class="score-step-btn" data-step="-10" data-id="${song.id}">-10</button>
               <button class="score-step-btn" data-step="-1" data-id="${song.id}">-1</button>
-              <input type="number" class="score-input" value="${song.score}" data-score-id="${song.id}" min="0" max="500" />
+              <input type="number" class="score-input" value="${song.score}" data-score-id="${song.id}" min="0" max="500" title="변경한 점수는 다음 0시 정산 시 순위에 반영됩니다" />
               <button class="score-step-btn" data-step="1" data-id="${song.id}">+1</button>
               <button class="score-step-btn" data-step="10" data-id="${song.id}">+10</button>
             </div>
@@ -3023,6 +3004,20 @@
       });
     }
 
+    // Manual Midnight Settlement & Weekly Play Reset Buttons
+    document.getElementById('forceMidnightSettleBtn').addEventListener('click', () => {
+      performMidnightSettlement(false, false);
+      renderChart();
+      showToast('⚡ 0시 정산이 즉시 실행되어 현재까지 누적된 점수·재생수로 공식 순위가 갱신되었습니다!');
+    });
+
+    document.getElementById('resetWeeklyPlaysBtn').addEventListener('click', () => {
+      songs.forEach(s => { s.weeklyPlays = 0; });
+      saveSongs();
+      renderChart();
+      showToast('🔄 모든 곡의 [주간 재생횟수]가 0으로 초기화되었습니다! (진입 후 누적횟수는 그대로 유지됩니다)');
+    });
+
     // Right Panel Interactive Score (Max 500) & Like Listeners
     document.querySelectorAll('[data-np-score-step]').forEach(btn => {
       btn.addEventListener('click', () => {
@@ -3033,7 +3028,7 @@
           song.score = Math.min(MAX_SCORE_LIMIT, Math.max(0, (Number(song.score) || 0) + delta));
           saveSongs();
           renderChart();
-          showToast(`⭐ '${song.title}' 내 점수가 ${song.score}점(최대 500점)으로 변경되었습니다!`);
+          showToast(`⭐ '${song.title}' 내 점수가 ${song.score}점으로 저장되었습니다 (0시 정산 시 순위 반영)`);
         }
       });
     });
@@ -3046,7 +3041,7 @@
         song.score = Math.min(MAX_SCORE_LIMIT, Math.max(0, val));
         saveSongs();
         renderChart();
-        showToast(`⭐ '${song.title}' 내 점수가 ${song.score}점(최대 500점)으로 설정되었습니다!`);
+        showToast(`⭐ '${song.title}' 내 점수가 ${song.score}점으로 저장되었습니다 (0시 정산 시 순위 반영)`);
       }
     });
 
@@ -3082,11 +3077,10 @@
     document.getElementById('confirmJsonReplaceBtn').addEventListener('click', () => {
       if (!pendingRestoredPayload) return;
       songs = pendingRestoredPayload.songs;
-      if (pendingRestoredPayload.periodMeta) {
-        localStorage.setItem(PERIOD_META_KEY, JSON.stringify(pendingRestoredPayload.periodMeta));
-        document.getElementById('lastSnapshotLabel').textContent =
-          `기준 순위: ${pendingRestoredPayload.periodMeta.lastSavedText || '백업 파일 기준'}`;
+      if (pendingRestoredPayload.settlementMeta) {
+        localStorage.setItem(SETTLEMENT_META_KEY, JSON.stringify(pendingRestoredPayload.settlementMeta));
       }
+      checkMidnightAndWeeklyRollover();
       saveSongs();
       renderChart();
       if (songs[0]) playSong(songs[0].id, false, false);
@@ -3102,7 +3096,11 @@
 
       pendingRestoredPayload.songs.forEach(item => {
         if (item.youtubeId && existingVidSet.has(item.youtubeId)) return;
-        songs.push({ ...item, id: 'song-' + Date.now() + '-' + Math.random().toString(36).slice(2, 6) });
+        songs.push({
+          ...item,
+          id: 'song-' + Date.now() + '-' + Math.random().toString(36).slice(2, 6),
+          settledRank: songs.length + 1
+        });
         if (item.youtubeId) existingVidSet.add(item.youtubeId);
         mergedCount++;
       });
@@ -3155,19 +3153,6 @@
       showToast(`재생 방식이 [${modeLabels[launchMode]}]로 설정되었습니다.`);
     });
 
-    // Period Mode Switcher (Weekly / Daily)
-    document.querySelectorAll('[data-period]').forEach(btn => {
-      btn.addEventListener('click', () => {
-        document.querySelectorAll('[data-period]').forEach(b => b.classList.remove('active'));
-        btn.classList.add('active');
-        chartPeriod = btn.getAttribute('data-period');
-        renderChart();
-        showToast(chartPeriod === 'daily'
-          ? '📅 [일간(DAILY) 차트] 모드로 전환되었습니다.'
-          : '📆 [주간(WEEKLY) 차트] 모드로 전환되었습니다.');
-      });
-    });
-
     // Import Existing Playlist / Batch URLs Modal Listeners
     document.getElementById('openImportModalBtn').addEventListener('click', () => {
       document.getElementById('importModal').classList.add('open');
@@ -3187,7 +3172,7 @@
     });
 
     document.getElementById('confirmImportAddBtn').addEventListener('click', () => {
-      const defaultScore = Math.min(MAX_SCORE_LIMIT, Math.max(0, parseInt(document.getElementById('importDefaultScore').value, 10) || 440));
+      const defaultScore = Math.min(MAX_SCORE_LIMIT, Math.max(0, parseInt(document.getElementById('importDefaultScore').value, 10) || DEFAULT_NEW_SONG_SCORE));
       const checkboxes = document.querySelectorAll('#importPreviewBox .import-check');
       const titleInputs = document.querySelectorAll('#importPreviewBox .import-title-in');
       const artistInputs = document.querySelectorAll('#importPreviewBox .import-artist-in');
@@ -3201,7 +3186,8 @@
 
         const customTitle = titleInputs[i] ? titleInputs[i].value.trim() : cand.title;
         const customArtist = artistInputs[i] ? artistInputs[i].value.trim() : cand.artist;
-        const staggeredScore = Math.max(50, defaultScore - Math.floor(addedCount * 2));
+        const newRankPos = songs.length + 1;
+        const initScorePart = Number(((defaultScore / MAX_SCORE_LIMIT) * 60).toFixed(1));
 
         songs.push({
           id: 'song-' + Date.now() + '-' + idx + '-' + Math.random().toString(36).slice(2, 6),
@@ -3209,14 +3195,17 @@
           artist: customArtist || cand.artist,
           youtubeId: cand.youtubeId,
           url: `https://www.youtube.com/watch?v=${cand.youtubeId}`,
-          score: staggeredScore,
+          score: defaultScore,
           ytViews: cand.ytViews || 1000000,
-          dailyPlays: 1,
           weeklyPlays: 1,
           totalPlays: 1,
-          prevDailyRank: null,
-          prevWeeklyRank: null,
-          rankHistory: [{ date: getTodayShortLabel(), rank: songs.length + 1 }],
+          prevRank: null,
+          settledRank: newRankPos,
+          settledTotal: Number((initScorePart + 8.0 + 2.0).toFixed(2)),
+          settledScorePart: initScorePart,
+          settledViewsPart: 8.0,
+          settledPlaysPart: 2.0,
+          rankHistory: [{ date: getTodayShortLabel(), rank: newRankPos }],
           liked: false
         });
         addedCount++;
@@ -3226,7 +3215,7 @@
         saveSongs();
         renderChart();
         document.getElementById('importModal').classList.remove('open');
-        showToast(`🎉 총 ${addedCount}곡이 차트에 일괄 등록되었습니다!`);
+        showToast(`🎉 총 ${addedCount}곡이 기본 ${defaultScore}점으로 차트에 추가되었습니다! (다음 0시에 정식 순위 정산)`);
       } else {
         showToast('⚠️ 선택된 곡이 없습니다.');
       }
@@ -3244,8 +3233,8 @@
       } else {
         previewBox.innerHTML = validTracks.map((t, idx) => `
           <div class="playlist-track-item">
-            <span><strong>${idx + 1}.</strong> [차트 #${t.currentRank}] ${escapeHtmlAttr(t.title)} - ${escapeHtmlAttr(t.artist)}</span>
-            <span style="font-weight:800; color:var(--accent-primary);">총점 ${t.weightedTotal.toFixed(1)} PTS (재생 ${t.periodPlays}회)</span>
+            <span><strong>${idx + 1}.</strong> [0시 공식 #${t.currentRank}] ${escapeHtmlAttr(t.title)} - ${escapeHtmlAttr(t.artist)}</span>
+            <span style="font-weight:800; color:var(--accent-primary);">정산 ${t.settledTotal.toFixed(1)} PTS (주간 ${t.weeklyPlays} / 누적 ${t.totalPlays}회)</span>
           </div>
         `).join('');
       }
@@ -3280,12 +3269,11 @@
 
     document.getElementById('copyTracklistTextBtn').addEventListener('click', async () => {
       const { playlistUrl, validTracks } = buildYoutubePlaylistData();
-      const modeName = chartPeriod === 'daily' ? '일간(DAILY)' : '주간(WEEKLY)';
       const lines = [
-        `[내맘대로 고른 음악 (${modeName}) 재생목록 (${getFormattedNow()})]`,
+        `[내맘대로 고른 음악 (0시 공식 정산 차트) 재생목록 (${getFormattedNow()})]`,
         `▶ 전곡 연속 재생 링크: ${playlistUrl}`,
         '',
-        ...validTracks.map((t, idx) => `${idx + 1}. [#${t.currentRank} / 총점 ${t.weightedTotal.toFixed(1)}점] ${t.title} - ${t.artist} (내점수 ${t.score}점 / 재생 ${t.periodPlays}회) : https://youtu.be/${t.youtubeId}`)
+        ...validTracks.map((t, idx) => `${idx + 1}. [#${t.currentRank} / 정산 ${t.settledTotal.toFixed(1)}점] ${t.title} - ${t.artist} (내점수 ${t.score}점 / 주간 ${t.weeklyPlays}회 / 누적 ${t.totalPlays}회) : https://youtu.be/${t.youtubeId}`)
       ];
       await navigator.clipboard.writeText(lines.join('\n'));
       showToast('📝 순위와 유튜브 재생목록 텍스트가 복사되었습니다!');
@@ -3322,7 +3310,7 @@
       fetchYoutubeMetadata(val, true);
     });
 
-    // Add New Song Form (Max 500)
+    // Add New Song Form (Starts at Default 90 Points, Settled at Midnight)
     document.getElementById('addSongForm').addEventListener('submit', async (e) => {
       e.preventDefault();
       const urlInput = document.getElementById('inputUrl').value.trim();
@@ -3336,7 +3324,7 @@
 
       let title = document.getElementById('inputTitle').value.trim();
       let artist = document.getElementById('inputArtist').value.trim();
-      const score = Math.min(MAX_SCORE_LIMIT, Math.max(0, parseInt(document.getElementById('inputScore').value, 10) || 450));
+      const score = Math.min(MAX_SCORE_LIMIT, Math.max(0, parseInt(document.getElementById('inputScore').value, 10) || DEFAULT_NEW_SONG_SCORE));
       let ytViews = parseInt(document.getElementById('inputYtViews').value, 10) || 1000000;
       const prevRankVal = parseInt(document.getElementById('inputPrevRank').value, 10);
 
@@ -3347,7 +3335,7 @@
         submitBtn.textContent = '추출 중...';
         const fetched = await fetchYoutubeMetadata(urlInput, false);
         submitBtn.disabled = false;
-        submitBtn.textContent = '차트 등록';
+        submitBtn.textContent = '차트 등록 (90점)';
 
         title = document.getElementById('inputTitle').value.trim() || (fetched ? fetched.title : '제목 미상 트랙');
         artist = document.getElementById('inputArtist').value.trim() || (fetched ? fetched.artist : 'Unknown Artist');
@@ -3362,9 +3350,11 @@
         : (urlInput.startsWith('http') ? urlInput : `https://www.youtube.com/results?search_query=${encodeURIComponent(artist + ' ' + title)}`);
 
       const validPrev = (!isNaN(prevRankVal) && prevRankVal > 0) ? prevRankVal : null;
+      const newEntryRank = songs.length + 1;
+      const initScorePart = Number(((score / MAX_SCORE_LIMIT) * 60).toFixed(1));
       const initialHistory = validPrev
-        ? buildSampleHistory([validPrev, validPrev, 1])
-        : [{ date: getTodayShortLabel(), rank: 1 }];
+        ? buildSampleHistory([validPrev, newEntryRank])
+        : [{ date: getTodayShortLabel(), rank: newEntryRank }];
 
       const newSong = {
         id: 'song-' + Date.now(),
@@ -3374,11 +3364,14 @@
         url: finalUrl,
         score,
         ytViews,
-        dailyPlays: 1,
         weeklyPlays: 1,
         totalPlays: 1,
-        prevDailyRank: validPrev,
-        prevWeeklyRank: validPrev,
+        prevRank: validPrev,
+        settledRank: newEntryRank,
+        settledTotal: Number((initScorePart + 8.0 + 2.0).toFixed(2)),
+        settledScorePart: initScorePart,
+        settledViewsPart: 8.0,
+        settledPlaysPart: 2.0,
         rankHistory: initialHistory,
         liked: false
       };
@@ -3390,19 +3383,11 @@
 
       e.target.reset();
       lastFetchedVideoId = null;
-      document.getElementById('inputScore').value = 450;
+      document.getElementById('inputScore').value = DEFAULT_NEW_SONG_SCORE;
       document.getElementById('inputYtViews').value = 1000000;
       document.getElementById('autofillStatusBadge').textContent = '✨ 유튜브 영상 링크나 재생목록(list=PL...) 주소를 붙여넣으세요';
       document.getElementById('autofillStatusBadge').className = 'autofill-status';
-      showToast(`🎵 '${title} - ${artist}' 곡이 차트에 등록되고 좌측 모니터에서 재생됩니다!`);
-    });
-
-    document.getElementById('savePrevRankBtn').addEventListener('click', () => {
-      saveCurrentRanksAsPrevious(false);
-    });
-
-    document.getElementById('resetPeriodPlaysBtn').addEventListener('click', () => {
-      saveCurrentRanksAsPrevious(true);
+      showToast(`🎵 '${title}' 곡이 기본 ${score}점으로 등록되었습니다! (다음 0시에 전체 순위가 재정산됩니다)`);
     });
 
     function saveInlineSongEdit(songId) {
@@ -3438,7 +3423,7 @@
       if (popupBtn) {
         const id = popupBtn.getAttribute('data-popup-id');
         playSong(id, true, true, 'popup');
-        showToast('❐ 전용 미니 팝업 창으로 곡을 실행합니다! (+1 재생횟수 누적)');
+        showToast('❐ 전용 미니 팝업 창으로 곡을 실행합니다! (주간·누적 재생수 +1)');
         return;
       }
 
@@ -3472,7 +3457,7 @@
       if (playTrigger) {
         const id = playTrigger.getAttribute('data-play-id');
         playSong(id, true, true);
-        showToast('▶ 좌측 비디오 모니터에서 재생을 시작합니다! (+1 재생횟수 누적)');
+        showToast('▶ 좌측 모니터 재생 시작! (주간·누적 재생횟수 +1 기록됨 • 0시 정산 반영)');
         return;
       }
 
@@ -3572,26 +3557,24 @@
 
     document.getElementById('resetSampleBtn').addEventListener('click', () => {
       editingSongId = null;
-      songs = JSON.parse(JSON.stringify(DEFAULT_SONGS));
-      localStorage.removeItem(PERIOD_META_KEY);
-      document.getElementById('lastSnapshotLabel').textContent = '기준 순위: 초기 샘플 기준';
-      saveSongs();
+      localStorage.removeItem(SETTLEMENT_META_KEY);
+      songs = DEFAULT_SONGS.map((s, idx) => normalizeSongRecord(s, idx));
+      performMidnightSettlement(true, false);
       renderChart();
       if (songs[0]) playSong(songs[0].id, false, false);
-      showToast('기본 샘플 차트(500점 만점 기준)로 복원되었습니다.');
+      showToast('기본 샘플 차트(0시 정산 시스템 기준)로 초기화되었습니다.');
     });
 
     // Google Sheets Snapshot Modal Logic
     function buildSnapshotTSV() {
       const timestamp = getFormattedNow();
-      const modeLabel = chartPeriod === 'daily' ? '일간(DAILY)' : '주간(WEEKLY)';
       const sorted = getSortedSongs();
       const { playlistUrl } = buildYoutubePlaylistData();
 
       const header = [
-        '집계시각', '차트구분', '현재순위', '이전순위', '순위변동',
-        '곡명', '아티스트', '종합점수(100점)', '내점수(500점만점/60%)', '유튜브조회수(10%)',
-        '현재모드재생수(30%)', '일간재생수', '주간재생수', '누적총재생수', '유튜브조회수(원본)',
+        '집계시각', '0시공식순위', '이전순위', '순위변동',
+        '곡명', '아티스트', '0시정산총점(100점)', '내일0시예상총점', '현재내점수(500점만점)',
+        '주간재생수(15%)', '진입후누적재생수(15%)', '유튜브조회수(10%)',
         '좋아요', '유튜브링크', '전체재생목록링크'
       ].join('\t');
 
@@ -3599,17 +3582,14 @@
         const move = getMovementInfo(s.currentRank, s.prevRank);
         return [
           timestamp,
-          modeLabel,
           s.currentRank,
           s.prevRank ? s.prevRank : 'NEW',
           move.plainText,
           s.title,
           s.artist,
-          s.weightedTotal.toFixed(2),
-          `${s.score}점(환산:${s.scorePart})`,
-          `${s.viewsPart}점`,
-          `${s.playsPart}점`,
-          s.dailyPlays,
+          s.settledTotal.toFixed(2),
+          s.nextExpectedTotal.toFixed(2),
+          s.score,
           s.weeklyPlays,
           s.totalPlays,
           s.ytViews,
@@ -3619,12 +3599,12 @@
         ].join('\t');
       });
 
-      return { timestamp, modeLabel, tsv: [header, ...rows].join('\n'), sorted, playlistUrl };
+      return { timestamp, tsv: [header, ...rows].join('\n'), sorted, playlistUrl };
     }
 
     document.getElementById('openSheetModalBtn').addEventListener('click', () => {
-      const { timestamp, modeLabel, tsv } = buildSnapshotTSV();
-      document.getElementById('snapshotTimeText').textContent = `${timestamp} [${modeLabel} 차트]`;
+      const { timestamp, tsv } = buildSnapshotTSV();
+      document.getElementById('snapshotTimeText').textContent = `${timestamp} [0시 정산 공식 차트]`;
       document.getElementById('snapshotTextarea').value = tsv;
       document.getElementById('webhookUrlInput').value = localStorage.getItem(WEBHOOK_STORAGE_KEY) || '';
       document.getElementById('sheetModal').classList.add('open');
@@ -3648,17 +3628,17 @@
     });
 
     document.getElementById('downloadCsvBtn').addEventListener('click', () => {
-      const { timestamp, modeLabel, sorted, playlistUrl } = buildSnapshotTSV();
-      const csvHeader = '집계시각,차트구분,현재순위,이전순위,순위변동,곡명,아티스트,종합점수,내점수(500점만점),유튜브조회수,일간재생수,주간재생수,누적총재생수,좋아요,유튜브링크,전체재생목록링크';
+      const { timestamp, sorted, playlistUrl } = buildSnapshotTSV();
+      const csvHeader = '집계시각,0시공식순위,이전순위,순위변동,곡명,아티스트,0시정산총점,내일0시예상총점,현재내점수(500점만점),주간재생수,진입후누적재생수,유튜브조회수,좋아요,유튜브링크,전체재생목록링크';
       const csvRows = sorted.map((s, idx) => {
         const move = getMovementInfo(s.currentRank, s.prevRank);
-        return `"${timestamp}","${modeLabel}",${s.currentRank},"${s.prevRank ? s.prevRank : 'NEW'}","${move.plainText}","${s.title.replace(/"/g, '""')}","${s.artist.replace(/"/g, '""')}",${s.weightedTotal.toFixed(2)},${s.score},${s.ytViews},${s.dailyPlays},${s.weeklyPlays},${s.totalPlays},"${s.liked ? 'LIKE' : ''}","${getPlayableUrl(s)}","${idx === 0 ? playlistUrl : ''}"`;
+        return `"${timestamp}",${s.currentRank},"${s.prevRank ? s.prevRank : 'NEW'}","${move.plainText}","${s.title.replace(/"/g, '""')}","${s.artist.replace(/"/g, '""')}",${s.settledTotal.toFixed(2)},${s.nextExpectedTotal.toFixed(2)},${s.score},${s.weeklyPlays},${s.totalPlays},${s.ytViews},"${s.liked ? 'LIKE' : ''}","${getPlayableUrl(s)}","${idx === 0 ? playlistUrl : ''}"`;
       });
       const csvContent = '\uFEFF' + [csvHeader, ...csvRows].join('\n');
       const blob = new Blob([csvContent], { type: 'text/csv;charset=utf-8;' });
       const link = document.createElement('a');
       link.href = URL.createObjectURL(blob);
-      link.download = `mypick_music_${chartPeriod}_${timestamp.replace(/[: ]/g, '_')}.csv`;
+      link.download = `mypick_music_midnight_${timestamp.replace(/[: ]/g, '_')}.csv`;
       link.click();
       showToast('💾 구글 시트용 CSV 파일이 다운로드되었습니다.');
     });
@@ -3670,13 +3650,13 @@
         return;
       }
       localStorage.setItem(WEBHOOK_STORAGE_KEY, url);
-      const { timestamp, modeLabel, sorted, playlistUrl } = buildSnapshotTSV();
+      const { timestamp, sorted, playlistUrl } = buildSnapshotTSV();
       try {
         await fetch(url, {
           method: 'POST',
           mode: 'no-cors',
           headers: { 'Content-Type': 'application/json' },
-          body: JSON.stringify({ timestamp, chartPeriod: modeLabel, playlistUrl, chart: sorted })
+          body: JSON.stringify({ timestamp, playlistUrl, chart: sorted })
         });
         showToast('⚡ 구글 시트 웹훅으로 현시점 순위표 전송을 완료했습니다!');
       } catch (err) {
@@ -3684,8 +3664,10 @@
       }
     });
 
+    // Live Clock & Automatic Midnight (00:00:00) Trigger Loop
     setInterval(() => {
       document.getElementById('liveClock').textContent = `LIVE • ${getFormattedNow()}`;
+      checkMidnightAndWeeklyRollover();
     }, 1000);
 
     // Boot Sequence
@@ -3693,7 +3675,7 @@
     document.getElementById('liveClock').textContent = `LIVE • ${getFormattedNow()}`;
     renderChart();
     if (songs.length > 0) {
-      const firstSong = computeEnrichedSongs(chartPeriod).sort((a, b) => a.currentRank - b.currentRank)[0];
+      const firstSong = computeEnrichedSongs().sort((a, b) => a.currentRank - b.currentRank)[0];
       currentPlayingId = firstSong.id;
       const iframeEl = document.getElementById('ytIframePlayer');
       if (iframeEl && firstSong.youtubeId) {
